@@ -9,10 +9,9 @@ import * as actionCreators from "./store/actions";
 // import PrivateRoute from "./PrivateRoute";
 // import Home from "./Home";
 // import Navbar from "./Navbar";
-import Signup from "./components/signup";
+import RegisterOrLogin from "./components/RegisterOrLogin";
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
-import Login from "./components/login";
 
 class App extends Component {
   componentDidMount() {
@@ -25,10 +24,9 @@ class App extends Component {
         {/* <Navbar /> */}
         <div className="container-fluid">
           <Switch>
-            <Route path="/" exact component={Login} />
+            <Route path="/(login|signup)" component={RegisterOrLogin} />
             {/* <Route path="/garbage" component={Garbage} />
             <PrivateRoute path="/treasure" component={Treasure} /> */}
-            <Route path="/signup" component={Signup} />
             <Redirect to="/" />
           </Switch>
         </div>
