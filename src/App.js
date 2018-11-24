@@ -11,6 +11,7 @@ import * as actionCreators from "./store/actions";
 // import Navbar from "./Navbar";
 import RegisterOrLogin from "./components/RegisterOrLogin";
 import ItemList from "./components/ItemList";
+import Cart from "./components/Cart";
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
 
@@ -26,6 +27,7 @@ class App extends Component {
         {/* <Navbar /> */}
         <div className="container-fluid">
           <Switch>
+            <Route path="/cart" component={Cart} />
             <Route path="/list" component={ItemList} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
 
