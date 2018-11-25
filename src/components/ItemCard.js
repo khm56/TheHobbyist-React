@@ -7,7 +7,7 @@ class ItemCard extends Component {
     console.log(item);
     return (
       <div className="col-lg-4 col-md-6 col-12">
-        <div className="card">
+        <Link to={`/items/${item.id}`} className="card">
           <div className="image">
             <img
               className="card-img-top img-fluid"
@@ -22,7 +22,7 @@ class ItemCard extends Component {
             </h5>
             <small className="card-text">{item.description}</small>
           </div>
-        </div>
+        </Link>
       </div>
     );
   }

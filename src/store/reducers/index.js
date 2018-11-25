@@ -2,9 +2,11 @@ import { combineReducers } from "redux";
 
 // Reducers
 import authReducer from "./authReducer";
-import itemsReducer from "./items";
+import itemsReducer from "./itemsReducer";
+import itemReducer from "./itemReducer";
 
 export default combineReducers({
   auth: authReducer,
-  items: itemsReducer
+  items: itemsReducer,
+  item: itemReducer
 });
