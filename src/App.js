@@ -24,9 +24,8 @@ class App extends Component {
     this.props.checkToken();
     this.props.fetchItems();
   }
-  componentDidUpdate() {
-    console.log(this.props.user);
-    if (this.props.user) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.user !== this.props.user) {
       this.props.fetchProfile(this.props.user.user_id);
     }
   }
@@ -36,11 +35,8 @@ class App extends Component {
         {/* <Navbar /> */}
         <div className="container-fluid">
           <Switch>
-
             <Route path="/items/:itemID" component={ItemDetail} />
-
             <Route path="/cart" component={Cart} />
-
             <Route path="/list" component={ItemList} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
             <Route path="/profile" component={Profile} />
