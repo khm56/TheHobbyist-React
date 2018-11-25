@@ -1,6 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
+  cart: {},
   cartItems: []
 };
 
@@ -20,6 +21,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         cartItems: []
+      };
+    case actionTypes.SET_CART:
+      return {
+        ...state,
+        cart: action.payload,
+        cartItems: action.payload.orderItems
       };
     default:
       return state;

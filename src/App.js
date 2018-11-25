@@ -28,6 +28,9 @@ class App extends Component {
     if (prevProps.user !== this.props.user) {
       this.props.fetchProfile(this.props.user.user_id);
     }
+    if (this.props.profile !== prevProps.profile) {
+      this.props.setCart(this.props.profile);
+    }
   }
   render() {
     return (
@@ -57,7 +60,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   checkToken: () => dispatch(actionCreators.checkForExpiredToken()),
   fetchItems: () => dispatch(actionCreators.fetchItems()),
-  fetchProfile: user_id => dispatch(actionCreators.fetchProfile(user_id))
+  fetchProfile: user_id => dispatch(actionCreators.fetchProfile(user_id)),
+  setCart: orderList => dispatch(actionCreators.setCart(orderList))
 });
 
 export default withRouter(
