@@ -2,11 +2,19 @@ import { combineReducers } from "redux";
 
 // Reducers
 import authReducer from "./authReducer";
-import itemsReducer from "./items";
+
 import profileReducer from "./profileReducer";
+
+
+import itemsReducer from "./itemsReducer";
+import itemReducer from "./itemReducer";
+import cartReducer from "./cartReducer";
+
 
 export default combineReducers({
   auth: authReducer,
   items: itemsReducer,
-  prof: profileReducer
+  prof: profileReducer,
+  item: itemReducer,
+  cart: cartReducer,
 });

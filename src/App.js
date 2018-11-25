@@ -12,6 +12,10 @@ import * as actionCreators from "./store/actions";
 import RegisterOrLogin from "./components/RegisterOrLogin";
 import ItemList from "./components/ItemList";
 import Profile from "./components/Profile";
+import ItemDetail from "./components/ItemDetail";
+
+import Cart from "./components/Cart";
+
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
 
@@ -32,6 +36,11 @@ class App extends Component {
         {/* <Navbar /> */}
         <div className="container-fluid">
           <Switch>
+
+            <Route path="/items/:itemID" component={ItemDetail} />
+
+            <Route path="/cart" component={Cart} />
+
             <Route path="/list" component={ItemList} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
             <Route path="/profile" component={Profile} />
