@@ -6,5 +6,6 @@ export {
   setCart,
   addItemToCart,
   removeItemFromCart,
-  checkoutCart
+  checkoutCart,
+  createOrderItem
 } from "./cartActions";

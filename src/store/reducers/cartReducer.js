@@ -28,6 +28,11 @@ export default function(state = initialState, action) {
         cart: action.payload,
         cartItems: action.payload.orderItems
       };
+    case actionTypes.ADD_TO_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.concat(action.payload)
+      };
     default:
       return state;
   }

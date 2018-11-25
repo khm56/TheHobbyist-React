@@ -21,12 +21,33 @@ export const addItemToCart = item => dispatch => {
 export const createOrder = profile_id => {
   return dispatch => {
     axios
-      .post("http://127.0.0.1:8000/api/order/create/", { profile: profile_id })
+      .post("http://127.0.0.1:8000/api/order/create/")
       .then(res => res.data)
       .then(cart => {
         dispatch({
           type: actionTypes.SET_CART,
           payload: { ...cart, orderItems: [] }
+        });
+      })
+      .catch(err => {
+        dispatch(console.log(err.response));
+      });
+  };
+};
+
+export const createOrderItem = profile_id => {
+  return dispatch => {
+    axios
+      .post("http://127.0.0.1:8000/api/orderitem/create/", {
+        order: 6,
+        item: 1,
+        quantity: 20
+      })
+      .then(res => res.data)
+      .then(item => {
+        dispatch({
+          type: actionTypes.ADD_TO_CART,
+          payload: item
         });
       })
       .catch(err => {

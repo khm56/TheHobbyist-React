@@ -25,7 +25,7 @@ class ItemCard extends Component {
               <span>{item.name} </span>
               <span>{item.price} KD</span>
             </h5>
-            <button onClick={() => this.props.addItem(item)}>Add</button>
+            <button onClick={() => this.props.addItemToCart()}>Add</button>
             <div>
               <Link to="/cart">Checkout</Link>
             </div>
@@ -39,7 +39,8 @@ class ItemCard extends Component {
 
 const mapActionsToProps = dispatch => {
   return {
-    addItem: item => dispatch(actionCreators.addItemToCart(item))
+    addItemToCart: () => dispatch(actionCreators.createOrderItem())
+    // addItem: item => dispatch(actionCreators.addItemToCart(item))
   };
 };
 
