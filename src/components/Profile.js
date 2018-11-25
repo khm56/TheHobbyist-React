@@ -7,10 +7,8 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 
 class Profile extends Component {
+  componentDidMount() {}
   render() {
-    if (this.props.user) {
-      return <Redirect to="/" />;
-    }
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
@@ -27,7 +25,9 @@ const mapStateToProps = state => ({
   profile: state.prof.profile
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  fetchProfile: userID => dispatch(actionCreators.fetchProfile(userID))
+});
 
 export default connect(
   mapStateToProps,
