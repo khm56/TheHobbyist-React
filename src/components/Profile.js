@@ -10,8 +10,11 @@ import * as actionCreators from "../store/actions";
 class Profile extends Component {
   componentDidMount() {}
   render() {
-    if (!this.props.user) {
+    if (!this.props.user && this.props.checked) {
+      console.log("profile");
       return <Redirect to="/list" />;
+    } else if (!this.props.profile) {
+      return "loading...";
     }
 
     return (
@@ -44,7 +47,6 @@ class Profile extends Component {
           <div>
             <OrderTable orders={this.props.profile.orders} />
           </div>
-
         </div>
         <div className="card-footer">footer</div>
       </div>
@@ -54,7 +56,8 @@ class Profile extends Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  profile: state.prof.profile
+  profile: state.prof.profile,
+  checked: state.auth.checked
 });
 
 const mapDispatchToProps = dispatch => ({
