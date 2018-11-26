@@ -17,7 +17,7 @@ class OrderItemTable extends Component {
             <th>Price</th>
           </tr>
         </thead>
-        <tbody>{OrderItemRow}</tbody>
+        <tbody>{orderItemRow}</tbody>
       </table>
     );
   }
