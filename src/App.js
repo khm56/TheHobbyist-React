@@ -25,9 +25,12 @@ class App extends Component {
     this.props.fetchItems();
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.user !== this.props.user) {
-      this.props.fetchProfile(this.props.user.user_id);
+    if (prevProps !== null) {
+      if (prevProps.user !== this.props.user) {
+        this.props.fetchProfile(this.props.user.user_id);
+      }
     }
+
     if (this.props.profile !== prevProps.profile) {
       this.props.setCart(this.props.profile);
     }
