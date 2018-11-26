@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+
+import OrderDetail from "./OrderItem/OrderDetail";
 
 // Actions
 import * as actionCreators from "../store/actions";
@@ -11,6 +13,9 @@ class Profile extends Component {
     if (!this.props.user) {
       return <Redirect to="/list" />;
     }
+    // const orderDashboard = this.props.orders.map(order => (
+    //   <OrderTable key={orderItem.id} orderItem={orderItem} />
+    // ));
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
@@ -36,7 +41,7 @@ class Profile extends Component {
           <br />
           <div> list of address book </div>
           <br />
-          <div> order dashbaord </div>
+          <div> OrderListTable </div>
         </div>
         <div className="card-footer">footer</div>
       </div>
