@@ -1,27 +1,39 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class OrderItemRow extends Component {
   render() {
     const orderItem = this.props.orderItem;
+    const item = this.props.items.find(item => item.id === orderItem.item);
     return (
       <tr>
         <td>
-          {orderItem.item.image}?<img src={orderItem.item.image} />:
-          <img src="https://www.w3schools.com/w3css/img_lights.jpg" />
+          {item.image ? (
+            <img style={{ width: "100px", height: "100px" }} src={item.image} />
+          ) : (
+            <img
+              style={{ width: "100px", height: "100px" }}
+              src="https://www.w3schools.com/w3css/img_lights.jpg"
+            />
+          )}
         </td>
         <td>
-          <h2>{orderItem.item.name}</h2>
+          <h2>{item.name}</h2>
         </td>
         <td>{orderItem.quantity}</td>
         <td>
-          <div className="row">{orderItem.item.price}</div>
+          <div className="row">{item.price}</div>
           <div className="row">
-            <h5>Total: {orderItem.item.price * orderItem.quantity}</h5>
+            <h5>Total: {item.price * orderItem.quantity}</h5>
           </div>
         </td>
       </tr>
     );
   }
 }
-
-export default OrderItemRow;
+const mapStateToProps = state => {
+  return {
+    items: state.items.items
+  };
+};
+export default connect(mapStateToProps)(OrderItemRow);

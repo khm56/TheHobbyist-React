@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import OrderTable from "./Order/OrderTable";
 import AddressList from "./Address/AddressList";
+
 // Actions
 import * as actionCreators from "../store/actions";
 
@@ -39,9 +40,11 @@ class Profile extends Component {
             <AddressList addresses={this.props.profile.addresses} />
           </div>
           <br />
+
           <div>
             <OrderTable orders={this.props.profile.orders} />
           </div>
+
         </div>
         <div className="card-footer">footer</div>
       </div>
