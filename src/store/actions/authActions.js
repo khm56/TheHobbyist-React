@@ -60,7 +60,7 @@ export const signup = (userData, history) => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/profile");
+        history.push("/list");
       })
       .catch(err => console.error(err.response));
   };
