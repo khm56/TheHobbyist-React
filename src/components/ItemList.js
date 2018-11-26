@@ -14,9 +14,9 @@ class ItemList extends Component {
 
     return (
       <div className="Items">
-        <Link to="/profile"> Profile</Link>
         <h3>Items</h3>
         <div className="row">{itemCards}</div>
+        <Link to="/profile"> Profile</Link>
       </div>
     );
   }

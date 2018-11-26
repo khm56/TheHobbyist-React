@@ -9,6 +9,9 @@ import * as actionCreators from "../store/actions";
 class Profile extends Component {
   componentDidMount() {}
   render() {
+    if (!this.props.user) {
+      return <Redirect to="/list" />;
+    }
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
