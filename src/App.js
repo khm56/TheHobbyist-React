@@ -25,7 +25,11 @@ class App extends Component {
     this.props.fetchItems();
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.user !== this.props.user) {
+    if (prevProps !== null) {
+      if (prevProps.user !== this.props.user) {
+        this.props.fetchProfile(this.props.user.user_id);
+      }
+    } else {
       this.props.fetchProfile(this.props.user.user_id);
     }
     if (this.props.profile !== prevProps.profile) {
