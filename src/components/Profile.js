@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
+import OrderTable from "./Order/OrderTable";
 // Actions
 import * as actionCreators from "../store/actions";
 
@@ -30,13 +30,14 @@ class Profile extends Component {
           <div> BD : {this.props.profile.birth_date} </div>
           <br />
           <div>
-            {" "}
-            Bio : <br /> {this.props.profile.bio}{" "}
+            Bio : <br /> {this.props.profile.bio}
           </div>
           <br />
           <div> list of address book </div>
           <br />
-          <div> order dashbaord </div>
+          <div>
+            <OrderTable orders={this.props.profile.orders} />
+          </div>
         </div>
         <div className="card-footer">footer</div>
       </div>
