@@ -39,7 +39,7 @@ export const createOrderItem = profile_id => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        order: 6,
+        order: 9,
         item: 1,
         quantity: 20
       })
