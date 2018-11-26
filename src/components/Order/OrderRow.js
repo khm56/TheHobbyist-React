@@ -11,7 +11,7 @@ class OrderRow extends Component {
         </td>
         <td>{order.status}</td>
         <td>
-          {order.address && <div className="row">{order.address}</div>}
+          {order.address && <div className="row">{order.address.name}</div>}
           <div className="row">
             <h5>Total: 1000</h5>
           </div>

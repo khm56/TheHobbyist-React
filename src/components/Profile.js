@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import OrderTable from "./Order/OrderTable";
+import AddressList from "./Address/AddressList";
 // Actions
 import * as actionCreators from "../store/actions";
 
@@ -11,13 +12,14 @@ class Profile extends Component {
     if (!this.props.user) {
       return <Redirect to="/list" />;
     }
+
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
           <h5 className="card-title mb-4">
             {this.props.profile.user.username}
           </h5>
-          <img src={this.props.profile.img} />
+          <img className="img-thumbnail" src={this.props.profile.img} />
 
           <div>
             {this.props.profile.user.first_name}{" "}
@@ -33,7 +35,9 @@ class Profile extends Component {
             Bio : <br /> {this.props.profile.bio}
           </div>
           <br />
-          <div> list of address book </div>
+          <div>
+            <AddressList addresses={this.props.profile.addresses} />
+          </div>
           <br />
           <div>
             <OrderTable orders={this.props.profile.orders} />
