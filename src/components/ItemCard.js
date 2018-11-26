@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actionCreators from "../store/actions";
+import { Link } from "react-router-dom";
+
 class ItemCard extends Component {
-  cart() {
-    console.log("please work");
-    return <Redirect to="/cart" />;
-  }
   render() {
     const item = this.props.item;
     console.log(item);
@@ -22,13 +17,9 @@ class ItemCard extends Component {
           </div>
           <div className="card-body">
             <h5 className="card-title">
-              <span>{item.name} </span>
+              <span>{item.name}</span>
               <span>{item.price} KD</span>
             </h5>
-            <button onClick={() => this.props.addItemToCart()}>Add</button>
-            <div>
-              <Link to="/cart">Checkout</Link>
-            </div>
             <small className="card-text">{item.description}</small>
           </div>
         </Link>
@@ -37,14 +28,4 @@ class ItemCard extends Component {
   }
 }
 
-const mapActionsToProps = dispatch => {
-  return {
-    addItemToCart: () => dispatch(actionCreators.createOrderItem())
-    // addItem: item => dispatch(actionCreators.addItemToCart(item))
-  };
-};
-
-export default connect(
-  null,
-  mapActionsToProps
-)(ItemCard);
+export default ItemCard;
