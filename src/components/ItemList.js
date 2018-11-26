@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
 
 // Components
 import ItemCard from "./ItemCard";
@@ -15,6 +16,7 @@ class ItemList extends Component {
       <div className="Items">
         <h3>Items</h3>
         <div className="row">{itemCards}</div>
+        <Link to="/profile"> Profile</Link>
       </div>
     );
   }

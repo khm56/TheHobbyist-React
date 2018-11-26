@@ -5,10 +5,14 @@ import * as actionTypes from "./actionTypes";
 import { fetchProfile } from "./profileActions";
 
 const setAuthToken = token => {
-  localStorage.setItem("token", token);
-  axios.defaults.headers.common.Authorization = `jwt ${token}`;
+  if (token) {
+    localStorage.setItem("token", token);
+    axios.defaults.headers.common.Authorization = `jwt ${token}`;
+  } else {
+    localStorage.removeItem("token");
+    delete axios.defaults.headers.common.Authorization;
+  }
 };
-
 export const checkForExpiredToken = () => {
   return dispatch => {
     // Get token
@@ -56,13 +60,16 @@ export const signup = (userData, history) => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/profile");
+        history.push("/list");
       })
       .catch(err => console.error(err.response));
   };
 };
 
-export const logout = () => setCurrentUser();
+export const logout = () => {
+  setAuthToken();
+  return setCurrentUser(null);
+};
 
 const setCurrentUser = user => ({
   type: actionTypes.SET_CURRENT_USER,
