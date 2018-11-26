@@ -19,11 +19,22 @@ class ItemDetail extends Component {
         <div className="item">
           <div>
             <h3>{item.name}</h3>
+            <h3>{item.category}</h3>
+            <h3>{item.rating}</h3>
             <img
               src={item.image}
               className="img-thumbnail img-fluid"
               alt={item.name}
             />
+            <h3>{item.description}</h3>
+            <h3>{item.stock} Remaining</h3>
+            <form>
+              <label>
+                Quantity:
+                <input type="text" pattern="[0-9]*" name="Quantity" />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         </div>
       );

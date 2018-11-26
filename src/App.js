@@ -8,7 +8,7 @@ import * as actionCreators from "./store/actions";
 // Components
 // import PrivateRoute from "./PrivateRoute";
 // import Home from "./Home";
-// import Navbar from "./Navbar";
+import NavBar from "./components/Navigation/NavBar";
 import RegisterOrLogin from "./components/RegisterOrLogin";
 import ItemList from "./components/ItemList";
 import Profile from "./components/Profile";
@@ -25,22 +25,28 @@ class App extends Component {
     this.props.fetchItems();
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.user !== this.props.user) {
-      this.props.fetchProfile(this.props.user.user_id);
-    }
-    if (this.props.profile !== prevProps.profile) {
-      this.props.setCart(this.props.profile);
+    if (this.props.user !== null) {
+      if (prevProps !== null) {
+        if (prevProps.user !== this.props.user) {
+          this.props.fetchProfile(this.props.user.user_id);
+        }
+      } else {
+        this.props.fetchProfile(this.props.user.user_id);
+      }
+      if (this.props.profile !== prevProps.profile) {
+        this.props.setCart(this.props.profile);
+      }
     }
   }
   render() {
     return (
       <div>
-        {/* <Navbar /> */}
+        <NavBar />
         <div className="container-fluid">
           <Switch>
-            <Route path="/items/:itemID" component={ItemDetail} />
+            <Route path="/list" exact component={ItemList} />
+            <Route path="/items/:itemID" exact component={ItemDetail} />
             <Route path="/cart" component={Cart} />
-            <Route path="/list" component={ItemList} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
             <Route path="/profile" component={Profile} />
             {/* <Route path="/garbage" component={Garbage} />
