@@ -14,7 +14,7 @@ import ItemList from "./components/ItemList";
 import Profile from "./components/Profile";
 import ItemDetail from "./components/ItemDetail";
 
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";

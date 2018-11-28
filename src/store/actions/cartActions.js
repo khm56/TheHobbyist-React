@@ -39,8 +39,8 @@ export const createOrderItem = () => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        order: 9,
-        item: 1,
+        order: 7,
+        item: 3,
         quantity: 20
       })
       .then(res => res.data)

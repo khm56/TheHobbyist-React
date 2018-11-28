@@ -17,6 +17,7 @@ class ItemList extends Component {
         <h3>Items</h3>
         <div className="row">{itemCards}</div>
         <Link to="/profile"> Profile</Link>
+        <Link to="/cart"> Cart</Link>
       </div>
     );
   }
