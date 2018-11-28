@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
-class OrderItemRow extends Component {
+class CartRow extends Component {
   render() {
     const orderItem = this.props.orderItem;
     const item = this.props.items.find(item => item.id === orderItem.item);
@@ -18,7 +19,9 @@ class OrderItemRow extends Component {
           )}
         </td>
         <td>
-          <h2>{item.name}</h2>
+          <Link to={`/items/${item.id}`} className="card">
+            <h2>{item.name}</h2>
+          </Link>
         </td>
         <td>{orderItem.quantity}</td>
         <td>
@@ -36,4 +39,4 @@ const mapStateToProps = state => {
     items: state.items.items
   };
 };
-export default connect(mapStateToProps)(OrderItemRow);
+export default connect(mapStateToProps)(CartRow);
