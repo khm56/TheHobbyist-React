@@ -1,5 +1,10 @@
-export { login, signup, logout, checkForExpiredToken } from "./authActions";
-export { fetchProfile } from "./profileActions";
+export {
+  login,
+  signup,
+  logout,
+  checkForExpiredToken,
+  fetchProfile
+} from "./authActions";
 export { fetchItemDetail } from "./itemActions";
 export { fetchItems } from "./itemsActions";
 export {

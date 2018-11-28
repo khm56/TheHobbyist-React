@@ -21,21 +21,11 @@ import Cart from "./components/Cart";
 
 class App extends Component {
   componentDidMount() {
-    this.props.checkToken();
     this.props.fetchItems();
   }
   componentDidUpdate(prevProps) {
-    if (this.props.user !== null) {
-      if (prevProps !== null) {
-        if (prevProps.user !== this.props.user) {
-          this.props.fetchProfile(this.props.user.user_id);
-        }
-      } else {
-        this.props.fetchProfile(this.props.user.user_id);
-      }
-      if (this.props.profile !== prevProps.profile) {
-        this.props.setCart(this.props.profile);
-      }
+    if (this.props.profile !== prevProps.profile) {
+      this.props.setCart(this.props.profile);
     }
   }
   render() {

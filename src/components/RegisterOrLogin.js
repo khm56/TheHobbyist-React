@@ -36,7 +36,7 @@ class RegisterOrLogin extends Component {
     const type = this.props.match.url.substring(1);
     const { username, password } = this.state;
     if (this.props.user) {
-      return <Redirect to="/profile" />;
+      return <Redirect to="/list" />;
     }
     return (
       <div className="card col-6 mx-auto p-0 mt-5">

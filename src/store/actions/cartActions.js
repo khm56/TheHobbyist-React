@@ -35,7 +35,7 @@ export const createOrder = profile_id => {
   };
 };
 
-export const createOrderItem = profile_id => {
+export const createOrderItem = () => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
@@ -64,7 +64,7 @@ export const setCart = profile => dispatch => {
       payload: cart
     });
   } else {
-    dispatch(createOrder(profile.id));
+    dispatch(createOrder());
   }
 };
 

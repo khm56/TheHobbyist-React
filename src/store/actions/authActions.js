@@ -2,7 +2,6 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 import * as actionTypes from "./actionTypes";
-import { fetchProfile } from "./profileActions";
 
 const setAuthToken = token => {
   if (token) {
@@ -60,7 +59,6 @@ export const signup = (userData, history) => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/list");
       })
       .catch(err => console.error(err.response));
   };
@@ -71,7 +69,27 @@ export const logout = () => {
   return setCurrentUser(null);
 };
 
-const setCurrentUser = user => ({
-  type: actionTypes.SET_CURRENT_USER,
-  payload: user
-});
+const setCurrentUser = user => {
+  return dispatch => {
+    dispatch({ type: actionTypes.SET_CURRENT_USER, payload: user });
+    console.log("inside set setCurrentUser");
+    if (user) dispatch(fetchProfile(user.user_id));
+  };
+};
+
+export const fetchProfile = userID => {
+  return dispatch => {
+    axios
+      .get(`http://127.0.0.1:8000/api/profile/${userID}/`)
+      .then(res => res.data)
+      .then(profile =>
+        dispatch({ type: actionTypes.FETCH_PROFILE, payload: profile })
+      )
+      .then(() => {
+        console.log("profileActions");
+      })
+      .catch(err => {
+        //dispatch(console.log(err.response));
+      });
+  };
+};
