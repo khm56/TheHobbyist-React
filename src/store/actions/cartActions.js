@@ -35,13 +35,13 @@ export const createOrder = profile_id => {
   };
 };
 
-export const createOrderItem = () => {
+export const createOrderItem = (item_id, order_id, quantity) => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        order: 9,
-        item: 1,
-        quantity: 20
+        item: item_id,
+        order: order_id,
+        quantity: quantity
       })
       .then(res => res.data)
       .then(item => {

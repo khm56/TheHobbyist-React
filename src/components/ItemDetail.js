@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-
+import { Redirect } from "react-router-dom";
 // Components
 
 import { connect } from "react-redux";
 
 import * as actionCreators from "../store/actions/index";
-
+import QuantityForm from "./QuantityForm";
 class ItemDetail extends Component {
   componentDidMount() {
     this.props.getItem(this.props.match.params.itemID);
   }
+
   render() {
     if (!this.props.item.id) {
-      return "Potato";
+      return <Redirect to="/list" />;
     } else {
       const item = this.props.item;
       return (
@@ -28,13 +29,7 @@ class ItemDetail extends Component {
             />
             <h3>{item.description}</h3>
             <h3>{item.stock} Remaining</h3>
-            <form>
-              <label>
-                Quantity:
-                <input type="text" pattern="[0-9]*" name="Quantity" />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
+            <QuantityForm cart={this.props.cart.id} item={item.id} />
           </div>
         </div>
       );
@@ -44,7 +39,9 @@ class ItemDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    item: state.item.item
+    user: state.auth.user,
+    item: state.item.item,
+    cart: state.cart.cart
   };
 };
 
