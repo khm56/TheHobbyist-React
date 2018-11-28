@@ -8,7 +8,9 @@ import AddressList from "./Address/AddressList";
 import * as actionCreators from "../store/actions";
 
 class Profile extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.fetchProfile();
+  }
   render() {
     if (!this.props.user && this.props.checked) {
       console.log("profile");
@@ -61,7 +63,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchProfile: userID => dispatch(actionCreators.fetchProfile(userID))
+  fetchProfile: () => dispatch(actionCreators.fetchProfile())
 });
 
 export default connect(

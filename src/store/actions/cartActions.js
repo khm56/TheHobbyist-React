@@ -19,7 +19,7 @@ export const addItemToCart = item => dispatch => {
   });
 };
 
-export const createOrder = profile_id => {
+export const createOrder = () => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/order/create/")
@@ -40,7 +40,7 @@ export const createOrderItem = () => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        order: 8,
+        order: 9,
         item: 3,
         quantity: 20
       })
@@ -50,9 +50,6 @@ export const createOrderItem = () => {
           type: actionTypes.ADD_TO_CART,
           payload: item
         });
-      })
-      .then(() => {
-        dispatch(fetchProfile());
       })
       .catch(err => {
         dispatch(console.log(err.response));
@@ -74,16 +71,16 @@ export const setCart = profile => dispatch => {
 
 export const setStatus = (order_id, status) => {
   return dispatch => {
+    console.log("TEST");
     axios
-      .post(`http://127.0.0.1:8000/api/${order_id}/status-update/`, {
+      .put(`http://127.0.0.1:8000/api/order/${order_id}/status-update/`, {
         status: status
       })
-      .then(res => res.data)
       .then(() => {
         dispatch(createOrder());
       })
       .catch(err => {
-        dispatch(console.log(err.response));
+        console.log(err.response);
       });
   };
 };

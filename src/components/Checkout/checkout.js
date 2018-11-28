@@ -12,15 +12,16 @@ class Checkout extends Component {
   componentDidUpdate(prevProps) {}
 
   confirmHandler() {
-    let cart = this.props.profile.orders.find(order => order.status === "C");
+    let cart = this.props.cart;
+    console.log(this.props);
     this.props.setStatus(cart.id, "O");
   }
   render() {
     // const itemCards = this.props.items.map(item => (
     //   <ItemCard key={item.name} item={item} />
     // ));
-    console.log(this.props.profile);
-    let cart = this.props.profile.orders.find(order => order.status === "C");
+    console.log(actionCreators);
+    let cart = this.props.cart;
     console.log(cart);
     return (
       <div className="Items">
@@ -36,11 +37,14 @@ class Checkout extends Component {
 
 const mapStateToProps = state => {
   return {
+    cart: state.cart.cart,
     profile: state.auth.profile
   };
 };
 const mapDispatchToProps = dispatch => ({
-  setStatus: (order_id, status) => actionCreators.setStatus(order_id, status)
+  setStatus: (order_id, status) => {
+    dispatch(actionCreators.setStatus(order_id, status));
+  }
 });
 
 export default connect(
