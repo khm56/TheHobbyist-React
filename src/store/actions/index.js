@@ -9,8 +9,8 @@ export { fetchItemDetail } from "./itemActions";
 export { fetchItems } from "./itemsActions";
 export {
   setCart,
-  addItemToCart,
   removeItemFromCart,
   checkoutCart,
   createOrderItem
 } from "./cartActions";
+export { createAddress } from "./addressActions";
