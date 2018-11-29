@@ -13,8 +13,10 @@ import RegisterOrLogin from "./components/RegisterOrLogin";
 import ItemList from "./components/ItemList";
 import Profile from "./components/Profile";
 import ItemDetail from "./components/ItemDetail";
+import Checkout from "./components/Checkout/checkout";
+import Cart from "./components/Cart/Cart";
 import AddressForm from "./components/Address/AddressForm";
-import Cart from "./components/Cart";
+
 
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
@@ -40,6 +42,8 @@ class App extends Component {
             <Route path="/cart" component={Cart} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
             <Route path="/profile" component={Profile} />
+
+            <Route path="/checkout" component={Checkout} />
             <Route path="/address" component={AddressForm} />
             {/* <Route path="/garbage" component={Garbage} />
             <PrivateRoute path="/treasure" component={Treasure} /> */}

@@ -11,6 +11,7 @@ export {
   setCart,
   removeItemFromCart,
   checkoutCart,
-  createOrderItem
+  createOrderItem,
+  setStatus
 } from "./cartActions";
 export { createAddress } from "./addressActions";

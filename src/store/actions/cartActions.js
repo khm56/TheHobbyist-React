@@ -1,10 +1,11 @@
 // Types
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
+import { fetchProfile } from "./authActions";
 
 // Add item to Cart
 
-export const createOrder = profile_id => {
+export const createOrder = () => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/order/create/")
@@ -52,6 +53,24 @@ export const setCart = profile => dispatch => {
   } else {
     dispatch(createOrder());
   }
+};
+
+export const setStatus = (order_id, status, history, address_id) => {
+  return dispatch => {
+    console.log("TEST");
+    axios
+      .put(`http://127.0.0.1:8000/api/order/${order_id}/status-update/`, {
+        status: status,
+        address: address_id
+      })
+      .then(() => {
+        dispatch(createOrder());
+      })
+      .then(() => history.push("/profile"))
+      .catch(err => {
+        console.log(err.response);
+      });
+  };
 };
 
 // Remove item from cart

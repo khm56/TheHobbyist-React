@@ -73,14 +73,15 @@ const setCurrentUser = user => {
   return dispatch => {
     dispatch({ type: actionTypes.SET_CURRENT_USER, payload: user });
     console.log("inside set setCurrentUser");
-    if (user) dispatch(fetchProfile(user.user_id));
+    if (user) dispatch(fetchProfile());
   };
 };
 
-export const fetchProfile = userID => {
+export const fetchProfile = () => {
+  console.log("anything");
   return dispatch => {
     axios
-      .get(`http://127.0.0.1:8000/api/profile/${userID}/`)
+      .get(`http://127.0.0.1:8000/api/profile/`)
       .then(res => res.data)
       .then(profile =>
         dispatch({ type: actionTypes.FETCH_PROFILE, payload: profile })

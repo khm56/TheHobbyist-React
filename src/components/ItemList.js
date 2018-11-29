@@ -6,17 +6,21 @@ import ItemCard from "./ItemCard";
 
 import { connect } from "react-redux";
 
+import * as actionCreators from "../store/actions";
+
 class ItemList extends Component {
+  componentDidUpdate(prevProps) {}
   render() {
     const itemCards = this.props.items.map(item => (
       <ItemCard key={item.name} item={item} />
     ));
 
     return (
-      <div className="Items">
-        <h3>Items</h3>
+      <div className="mt-5">
+        <h3 className="">Items</h3>
         <div className="row">{itemCards}</div>
         <Link to="/profile"> Profile</Link>
+        <Link to="/cart"> Cart</Link>
       </div>
     );
   }
@@ -24,8 +28,10 @@ class ItemList extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.items.items
+    items: state.items.items,
+    profile: state.auth.profile
   };
 };
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps)(ItemList);
