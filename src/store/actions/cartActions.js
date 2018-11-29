@@ -4,20 +4,6 @@ import axios from "axios";
 import { fetchProfile } from "./authActions";
 
 // Add item to Cart
-export const addItemToCart = item => dispatch => {
-  //   const index = cart.findIndex(
-  //     cartItem => cartItem.name == item.name && cartItem.option == item.option
-  //   );
-  //   if (index >= 0) {
-  //     cart[index].quantity++;
-  //   } else {
-  //   cart.push(item);
-  //   }
-  dispatch({
-    type: actionTypes.ADD_ITEM,
-    payload: item
-  });
-};
 
 export const createOrder = () => {
   return dispatch => {
@@ -36,13 +22,13 @@ export const createOrder = () => {
   };
 };
 
-export const createOrderItem = () => {
+export const createOrderItem = (item_id, order_id, quantity) => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        order: 14,
-        item: 4,
-        quantity: 2
+        item: item_id,
+        order: order_id,
+        quantity: quantity
       })
       .then(res => res.data)
       .then(item => {

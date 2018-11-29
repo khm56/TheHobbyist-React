@@ -14,8 +14,9 @@ import ItemList from "./components/ItemList";
 import Profile from "./components/Profile";
 import ItemDetail from "./components/ItemDetail";
 import Checkout from "./components/Checkout/checkout";
-
 import Cart from "./components/Cart/Cart";
+import AddressForm from "./components/Address/AddressForm";
+
 
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
@@ -23,6 +24,7 @@ import Cart from "./components/Cart/Cart";
 class App extends Component {
   componentDidMount() {
     this.props.fetchItems();
+    console.log(this.props.profile);
   }
   componentDidUpdate(prevProps) {
     if (this.props.profile !== prevProps.profile) {
@@ -40,7 +42,9 @@ class App extends Component {
             <Route path="/cart" component={Cart} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
             <Route path="/profile" component={Profile} />
+
             <Route path="/checkout" component={Checkout} />
+            <Route path="/address" component={AddressForm} />
             {/* <Route path="/garbage" component={Garbage} />
             <PrivateRoute path="/treasure" component={Treasure} /> */}
             // <Redirect to="/" />
