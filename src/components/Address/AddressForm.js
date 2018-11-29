@@ -36,7 +36,7 @@ class AddressForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    console.log(this.state.governorate);
+    console.log(this.state);
     this.props.addAddress(this.state);
 
     this.setState({
