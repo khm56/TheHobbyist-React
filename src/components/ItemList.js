@@ -16,8 +16,8 @@ class ItemList extends Component {
     ));
 
     return (
-      <div className="Items">
-        <h3>Items</h3>
+      <div className="mt-5">
+        <h3 className="">Items</h3>
         <div className="row">{itemCards}</div>
         <Link to="/profile"> Profile</Link>
         <Link to="/cart"> Cart</Link>

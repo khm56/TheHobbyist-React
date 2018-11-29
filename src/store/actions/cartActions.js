@@ -40,9 +40,9 @@ export const createOrderItem = () => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        order: 9,
-        item: 3,
-        quantity: 20
+        order: 14,
+        item: 4,
+        quantity: 2
       })
       .then(res => res.data)
       .then(item => {
@@ -69,16 +69,18 @@ export const setCart = profile => dispatch => {
   }
 };
 
-export const setStatus = (order_id, status) => {
+export const setStatus = (order_id, status, history, address_id) => {
   return dispatch => {
     console.log("TEST");
     axios
       .put(`http://127.0.0.1:8000/api/order/${order_id}/status-update/`, {
-        status: status
+        status: status,
+        address: address_id
       })
       .then(() => {
         dispatch(createOrder());
       })
+      .then(() => history.push("/profile"))
       .catch(err => {
         console.log(err.response);
       });
