@@ -3,20 +3,6 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 // Add item to Cart
-export const addItemToCart = item => dispatch => {
-  //   const index = cart.findIndex(
-  //     cartItem => cartItem.name == item.name && cartItem.option == item.option
-  //   );
-  //   if (index >= 0) {
-  //     cart[index].quantity++;
-  //   } else {
-  //   cart.push(item);
-  //   }
-  dispatch({
-    type: actionTypes.ADD_ITEM,
-    payload: item
-  });
-};
 
 export const createOrder = profile_id => {
   return dispatch => {
