@@ -50,7 +50,6 @@ export const updateAddress = (
       })
       .then(res => res.data)
       .then(address => {
-        console.log(address);
         dispatch({
           type: actionTypes.ADD_ADDRESS,
           payload: address
