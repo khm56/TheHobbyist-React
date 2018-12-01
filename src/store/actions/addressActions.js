@@ -9,7 +9,48 @@ export const createAddress = address => {
     axios
       .post("http://127.0.0.1:8000/api/address/create/", address)
       .then(res => res.data)
-      .then(item => {
+      .then(address => {
+        dispatch({
+          type: actionTypes.ADD_ADDRESS,
+          payload: address
+        });
+      })
+      .catch(err => {
+        dispatch(console.log(err.response));
+      });
+  };
+};
+
+export const updateAddress = (
+  address_id,
+  name,
+  governorate,
+  area,
+  block,
+  street,
+  house_building,
+  floor,
+  appartment,
+  extra_directions,
+  defaultyes
+) => {
+  return dispatch => {
+    axios
+      .put(`http://127.0.0.1:8000/api/address/${address_id}/update/`, {
+        name: name,
+        governorate: governorate,
+        area: area,
+        block: block,
+        street: street,
+        house_building: house_building,
+        floor: floor,
+        appartment: appartment,
+        extra_directions: extra_directions,
+        default: defaultyes
+      })
+      .then(res => res.data)
+      .then(address => {
+        console.log(address);
         dispatch({
           type: actionTypes.ADD_ADDRESS,
           payload: address

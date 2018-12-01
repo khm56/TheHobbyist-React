@@ -14,4 +14,4 @@ export {
   createOrderItem,
   setStatus
 } from "./cartActions";
-export { createAddress } from "./addressActions";
+export { createAddress, updateAddress } from "./addressActions";
