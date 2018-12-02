@@ -8,7 +8,7 @@ import { fetchProfile } from "./authActions";
 export const createOrder = () => {
   return dispatch => {
     axios
-      .post("http://127.0.0.1:8000/api/order/create/")
+      .post("http://192.168.100.39/api/order/create/")
       .then(res => res.data)
       .then(cart => {
         dispatch({
@@ -25,7 +25,7 @@ export const createOrder = () => {
 export const createOrderItem = (item_id, order_id, quantity) => {
   return dispatch => {
     axios
-      .post("http://127.0.0.1:8000/api/orderitem/create/", {
+      .post("http://192.168.100.39/api/orderitem/create/", {
         item: item_id,
         order: order_id,
         quantity: quantity
