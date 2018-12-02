@@ -7,7 +7,7 @@ import axios from "axios";
 export const createAddress = address => {
   return dispatch => {
     axios
-      .post("http://127.0.0.1:8000/api/address/create/", address)
+      .post("http://192.168.100.39/api/address/create/", address)
       .then(res => res.data)
       .then(item => {
         dispatch({

@@ -33,6 +33,14 @@ export default function(state = initialState, action) {
         ...state,
         cartItems: state.cartItems.concat(action.payload)
       };
+    case actionTypes.SET_QUANTITY:
+      let item = state.cartItems.find(
+        item => item.id == action.payload.item_id
+      );
+      item.quantity = action.payload.quantity;
+      return {
+        ...state
+      };
     default:
       return state;
   }

@@ -55,11 +55,27 @@ export const setCart = profile => dispatch => {
   }
 };
 
+export const setStock = (item, quantity) => dispatch => {
+  return dispatch => {
+    console.log("stock update");
+    axios
+      .put(`http://192.168.100.39/api/item/${item.id}/stock-update/`, {
+        stock: item.stock - quantity
+      })
+      .then(() => {
+        dispatch({ type: actionTypes.SET_STOCK, payload: item });
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+  };
+};
+
 export const setStatus = (order_id, status, history, address_id) => {
   return dispatch => {
     console.log("TEST");
     axios
-      .put(`http://127.0.0.1:8000/api/order/${order_id}/status-update/`, {
+      .put(`http://192.168.100.39/api/order/${order_id}/status-update/`, {
         status: status,
         address: address_id
       })
@@ -86,4 +102,26 @@ export const checkoutCart = () => dispatch => {
   dispatch({
     type: actionTypes.CHECKOUT
   });
+};
+
+export const updateOrderItemInCart = (orderItem_id, quantity, history) => {
+  return dispatch => {
+    axios
+      .put(
+        `http://192.168.100.39/api/orderitem/${orderItem_id}/quantity-update/`,
+        {
+          quantity: quantity
+        }
+      )
+      .then(res => res.data)
+      .then(() => {
+        dispatch({
+          type: actionTypes.SET_QUANTITY,
+          payload: { item_id: orderItem_id, quantity: quantity }
+        });
+      })
+      .catch(err => {
+        dispatch(console.log(err.response));
+      });
+  };
 };
