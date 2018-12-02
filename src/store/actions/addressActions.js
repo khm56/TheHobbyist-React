@@ -32,7 +32,8 @@ export const updateAddress = (
   floor,
   appartment,
   extra_directions,
-  defaultyes
+  defaultyes,
+  history
 ) => {
   return dispatch => {
     axios
@@ -54,6 +55,9 @@ export const updateAddress = (
           type: actionTypes.ADD_ADDRESS,
           payload: address
         });
+      })
+      .then(() => {
+        history.push("/profile");
       })
       .catch(err => {
         dispatch(console.log(err.response));

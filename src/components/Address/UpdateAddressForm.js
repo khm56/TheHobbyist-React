@@ -49,7 +49,8 @@ class UpdateAddressForm extends Component {
       this.state.floor,
       this.state.appartment,
       this.state.extra_directions,
-      this.state.default
+      this.state.default,
+      this.props.history
     );
 
     this.setState({
@@ -64,7 +65,6 @@ class UpdateAddressForm extends Component {
       extra_directions: this.props.location.state.address.extra_directions,
       default: this.props.location.state.address.default
     });
-    this.props.history.push("/profile");
   }
 
   render() {
