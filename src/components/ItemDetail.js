@@ -29,7 +29,7 @@ class ItemDetail extends Component {
             />
             <h3>{item.description}</h3>
             <h3>{item.stock} Remaining</h3>
-            <QuantityForm cart={this.props.cart.id} item={item.id} />
+            <QuantityForm cart={this.props.cart.id} item={item} />
           </div>
         </div>
       );

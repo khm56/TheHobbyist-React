@@ -21,13 +21,15 @@ class QuantityForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
+    console.log(this.state.quantity);
+    console.log(this.props.item.stock);
     if (
       this.props.cart &&
-      this.props.item &&
+      this.props.item.id &&
       this.state.quantity <= this.props.item.stock
     ) {
       this.props.addItemToCart(
-        this.props.item,
+        this.props.item.id,
         this.props.cart,
         this.state.quantity
       );
