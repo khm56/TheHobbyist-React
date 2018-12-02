@@ -4,20 +4,20 @@ import { connect } from "react-redux";
 
 import * as actionCreators from "../../store/actions";
 
-class AddressForm extends Component {
+class UpdateAddressForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      governorate: "A",
-      area: "",
-      block: 0,
-      street: "",
-      house_building: "",
-      floor: 0,
-      appartment: "",
-      extra_directions: "",
-      default: false
+      name: this.props.location.state.address.name,
+      governorate: this.props.location.state.address.governorate,
+      area: this.props.location.state.address.area,
+      block: this.props.location.state.address.block,
+      street: this.props.location.state.address.street,
+      house_building: this.props.location.state.address.house_building,
+      floor: this.props.location.state.address.floor,
+      appartment: this.props.location.state.address.appartment,
+      extra_directions: this.props.location.state.address.extra_directions,
+      default: this.props.location.state.address.default
     };
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -37,19 +37,33 @@ class AddressForm extends Component {
   submitHandler(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.addAddress(this.state);
+    console.log(this.props.location);
+    this.props.updateAddress(
+      this.props.location.state.address.id,
+      this.state.name,
+      this.state.governorate,
+      this.state.area,
+      this.state.block,
+      this.state.street,
+      this.state.house_building,
+      this.state.floor,
+      this.state.appartment,
+      this.state.extra_directions,
+      this.state.default,
+      this.props.history
+    );
 
     this.setState({
-      name: "",
-      governorate: "A",
-      area: "",
-      block: 0,
-      street: "",
-      house_building: "",
-      floor: 0,
-      appartment: "",
-      extra_directions: "",
-      default: false
+      name: this.props.location.state.address.name,
+      governorate: this.props.location.state.address.governorate,
+      area: this.props.location.state.address.area,
+      block: this.props.location.state.address.block,
+      street: this.props.location.state.address.street,
+      house_building: this.props.location.state.address.house_building,
+      floor: this.props.location.state.address.floor,
+      appartment: this.props.location.state.address.appartment,
+      extra_directions: this.props.location.state.address.extra_directions,
+      default: this.props.location.state.address.default
     });
   }
 
@@ -184,7 +198,7 @@ class AddressForm extends Component {
                   onChange={this.changeHandler}
                 />
               </div>
-              <input className="btn btn-primary" type="submit" value="Add" />
+              <input className="btn btn-primary" type="submit" value="Update" />
             </form>
           </div>
         </div>
@@ -199,11 +213,37 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
-    addAddress: address => dispatch(actionCreators.createAddress(address))
+    updateAddress: (
+      address_id,
+      name,
+      governorate,
+      area,
+      block,
+      street,
+      house_building,
+      floor,
+      appartment,
+      extra_directions,
+      defaultyes
+    ) =>
+      dispatch(
+        actionCreators.updateAddress(
+          address_id,
+          name,
+          governorate,
+          area,
+          block,
+          street,
+          house_building,
+          floor,
+          appartment,
+          extra_directions,
+          defaultyes
+        )
+      )
   };
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddressForm);
+)(UpdateAddressForm);

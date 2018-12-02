@@ -21,7 +21,11 @@ class QuantityForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    if (this.props.cart && this.props.item) {
+    if (
+      this.props.cart &&
+      this.props.item &&
+      this.state.quantity <= this.props.item.stock
+    ) {
       this.props.addItemToCart(
         this.props.item,
         this.props.cart,
