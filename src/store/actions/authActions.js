@@ -39,7 +39,7 @@ export const checkForExpiredToken = () => {
 export const login = userData => {
   return dispatch => {
     axios
-      .post("http://192.168.100.39/api/login/", userData)
+      .post("http://127.0.0.1:8000/api/login/", userData)
       .then(res => res.data)
       .then(user => {
         const decodedUser = jwt_decode(user.token);
@@ -53,7 +53,7 @@ export const login = userData => {
 export const signup = (userData, history) => {
   return dispatch => {
     axios
-      .post("http://192.168.100.39/api/register/", userData)
+      .post("http://127.0.0.1:8000/api/register/", userData)
       .then(res => res.data)
       .then(user => {
         const decodedUser = jwt_decode(user.token);
@@ -82,7 +82,7 @@ export const fetchProfile = () => {
   console.log("anything");
   return dispatch => {
     axios
-      .get(`http://192.168.100.39/api/profile/`)
+      .get(`http://127.0.0.1:8000/api/profile/`)
       .then(res => res.data)
       .then(profile =>
         dispatch({ type: actionTypes.FETCH_PROFILE, payload: profile })
