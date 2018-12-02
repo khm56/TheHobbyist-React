@@ -22,19 +22,30 @@ class ItemCard extends Component {
             <span>{item.name}</span>
             <span>{item.price} KD</span>
           </h5>
-          <button onClick={() => this.props.addItemToCart()}>Add</button>
+          <button
+            onClick={() =>
+              this.props.addItemToCart(item.id, this.props.cart.id, 1)
+            }
+          >
+            Add
+          </button>
         </div>
       </div>
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    cart: state.cart.cart
+  };
+};
 const mapActionsToProps = dispatch => {
   return {
-    addItemToCart: () => dispatch(actionCreators.createOrderItem())
+    addItemToCart: (item_id, order_id, quantity) =>
+      dispatch(actionCreators.createOrderItem(item_id, order_id, quantity))
   };
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapActionsToProps
 )(ItemCard);

@@ -17,7 +17,6 @@ import Checkout from "./components/Checkout/checkout";
 import Cart from "./components/Cart/Cart";
 import AddressForm from "./components/Address/AddressForm";
 
-
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
 
@@ -34,15 +33,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <div className="container-fluid">
+          <NavBar />
           <Switch>
             <Route path="/list" exact component={ItemList} />
             <Route path="/items/:itemID" exact component={ItemDetail} />
             <Route path="/cart" component={Cart} />
             <Route path="/(login|signup)" component={RegisterOrLogin} />
             <Route path="/profile" component={Profile} />
-
             <Route path="/checkout" component={Checkout} />
             <Route path="/address" component={AddressForm} />
             {/* <Route path="/garbage" component={Garbage} />
