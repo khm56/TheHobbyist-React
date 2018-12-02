@@ -10,6 +10,8 @@ export const ADD_ITEM = "ADD_ITEM";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const CHECKOUT = "CHECKOUT";
+export const SET_QUANTITY = "SET_QUANTITY";
+export const SET_STOCK = "SET_STOCK";
 
 //address
 export const ADD_ADDRESS = "ADD_ADDRESS";

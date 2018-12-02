@@ -10,6 +10,12 @@ const itemsReducer = (state = initialState, action) => {
         ...state,
         items: action.payload
       };
+    case actionTypes.SET_STOCK:
+      let item = state.items.find(item => item.id === action.payload.id);
+      item.stock = action.payload.stock;
+      return {
+        ...state
+      };
     default:
       return state;
   }

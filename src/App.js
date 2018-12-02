@@ -16,6 +16,7 @@ import ItemDetail from "./components/ItemDetail";
 import Checkout from "./components/Checkout/checkout";
 import Cart from "./components/Cart/Cart";
 import AddressForm from "./components/Address/AddressForm";
+
 import UpdateAddressForm from "./components/Address/UpdateAddressForm";
 
 // import Garbage from "./Garbage";
@@ -34,8 +35,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <div className="container-fluid">
+          <NavBar />
           <Switch>
             <Route path="/list" exact component={ItemList} />
             <Route path="/items/:itemID" exact component={ItemDetail} />

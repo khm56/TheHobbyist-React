@@ -18,25 +18,40 @@ class Checkout extends Component {
   }
 
   handleChange(e) {
-    console.log(e.target.value);
-    if (e.target.value === "Add") {
-      this.addAddress();
-    }
     this.setState({ address: e.target.value });
   }
 
   componentDidMount() {}
   componentDidUpdate(prevProps) {}
 
+  checkStock(cart) {
+    cart.forEach(orderItem => {
+      let item_id = orderItem.item;
+      let item = this.props.items.forEach(item => item.id === item_id);
+      if (orderItem.quantity > item.stock) {
+        alert(
+          `${item.name} doesn't have enough stock please update your quantity`
+        );
+        return <Redirect to="./cart" />;
+      }
+    });
+  }
   confirmHandler() {
     let cart = this.props.cart;
-    console.log(this.props);
-    this.props.setStatus(cart.id, "O", this.props.history, this.state.address);
+    this.checkStock(cart);
+    if (this.state.address === 0) {
+      alert("Please choose address");
+    } else {
+      this.props.setStatus(
+        cart.id,
+        "O",
+        this.props.history,
+        this.state.address
+      );
+    }
   }
 
-  addAddress() {
-    console.log("Add Address");
-  }
+  addAddress() {}
   render() {
     // const itemCards = this.props.items.map(item => (
     //   <ItemCard key={item.name} item={item} />
@@ -49,6 +64,9 @@ class Checkout extends Component {
       addresses = this.props.profile.addresses.map(address => (
         <option value={address.id}>{address.name}</option>
       ));
+    }
+    if (this.state.address === "Add") {
+      return <Redirect to="/address" />;
     }
     return (
       <div className="Items mt-5">
@@ -76,12 +94,16 @@ class Checkout extends Component {
 const mapStateToProps = state => {
   return {
     cart: state.cart.cart,
-    profile: state.auth.profile
+    profile: state.auth.profile,
+    items: state.items.items
   };
 };
 const mapDispatchToProps = dispatch => ({
   setStatus: (order_id, status, history, address_id) => {
     dispatch(actionCreators.setStatus(order_id, status, history, address_id));
+  },
+  setStock: (item, quantity) => {
+    dispatch(actionCreators.setStock(item, quantity));
   }
 });
 
