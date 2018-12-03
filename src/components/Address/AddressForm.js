@@ -37,32 +37,7 @@ class AddressForm extends Component {
   submitHandler(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.addAddress(
-      this.state.name,
-      this.state.governorate,
-      this.state.area,
-      this.state.block,
-      this.state.street,
-      this.state.house_building,
-      this.state.floor,
-      this.state.appartment,
-      this.state.extra_directions,
-      this.state.default,
-      this.props.history
-    );
-
-    this.setState({
-      name: "",
-      governorate: "A",
-      area: "",
-      block: 0,
-      street: "",
-      house_building: "",
-      floor: 0,
-      appartment: "",
-      extra_directions: "",
-      default: false
-    });
+    this.props.addAddress(this.state);
   }
 
   render() {
@@ -212,34 +187,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
-    addAddress: (
-      name,
-      governorate,
-      area,
-      block,
-      street,
-      house_building,
-      floor,
-      appartment,
-      extra_directions,
-      defaultyes,
-      history
-    ) =>
-      dispatch(
-        actionCreators.createAddress(
-          name,
-          governorate,
-          area,
-          block,
-          street,
-          house_building,
-          floor,
-          appartment,
-          extra_directions,
-          defaultyes,
-          history
-        )
-      )
+    addAddress: address => dispatch(actionCreators.createAddress(address))
   };
 };
 export default connect(

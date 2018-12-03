@@ -76,7 +76,6 @@ class ItemDetail extends Component {
             <button className="btn" onClick={this.addToCart}>
               ADD
             </button>
-
           </div>
         </div>
       );
@@ -95,7 +94,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
-    fetchProfile: () => dispatch(actionCreators.fetchProfile())
+    fetchProfile: () => dispatch(actionCreators.fetchProfile()),
     addItemToCart: (item_id, order_id, quantity) =>
       dispatch(actionCreators.createOrderItem(item_id, order_id, quantity)),
 
