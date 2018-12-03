@@ -25,9 +25,7 @@ class QuantityForm extends Component {
       this.props.cart.orderItems.filter(item => {
         return item.item === this.props.item.id;
       }).length > 0;
-    let retrieveOrderItem = this.props.cart.orderItems.find(item => {
-      return item.item === this.props.item.id;
-    });
+
     if (
       this.props.cart.id &&
       this.props.item.id &&
@@ -42,8 +40,10 @@ class QuantityForm extends Component {
       );
     } else if (orderItem) {
       let integerquantity = +this.state.quantity;
+      let retrieveOrderItem = this.props.cart.orderItems.find(item => {
+        return item.item === this.props.item.id;
+      });
       let quantityToBePassed = retrieveOrderItem.quantity + integerquantity;
-      console.log(quantityToBePassed);
       this.props.updateOrderItemInCart(
         retrieveOrderItem.id,
         quantityToBePassed,

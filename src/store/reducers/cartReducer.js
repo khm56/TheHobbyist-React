@@ -31,6 +31,10 @@ export default function(state = initialState, action) {
     case actionTypes.ADD_TO_CART:
       return {
         ...state,
+        cart: {
+          ...state.cart,
+          orderItems: state.cart.orderItems.concat(action.payload)
+        },
         cartItems: state.cartItems.concat(action.payload)
       };
     case actionTypes.SET_QUANTITY:

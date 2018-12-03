@@ -8,11 +8,13 @@ import * as actionCreators from "../store/actions/index";
 import QuantityForm from "./QuantityForm";
 class ItemDetail extends Component {
   componentDidMount() {
+    console.log(this.props.match.params.itemID);
     this.props.getItem(this.props.match.params.itemID);
   }
   componentDidUpdate() {
     this.props.getItem(this.props.match.params.itemID);
   }
+
   render() {
     if (!this.props.item.id) {
       return <Redirect to="/list" />;
@@ -49,7 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID))
+    getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
+    fetchProfile: () => dispatch(actionCreators.fetchProfile())
   };
 };
 

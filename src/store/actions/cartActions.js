@@ -32,6 +32,7 @@ export const createOrderItem = (item, order, quantity, history) => {
       })
       .then(res => res.data)
       .then(item => {
+        console.log(item);
         dispatch({
           type: actionTypes.ADD_TO_CART,
           payload: item
