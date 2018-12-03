@@ -22,12 +22,12 @@ export const createOrder = () => {
   };
 };
 
-export const createOrderItem = (item_id, order_id, quantity, history) => {
+export const createOrderItem = (item, order, quantity, history) => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
-        item: item_id,
-        order: order_id,
+        item: item.id,
+        order: order.id,
         quantity: quantity
       })
       .then(res => res.data)
@@ -36,9 +36,6 @@ export const createOrderItem = (item_id, order_id, quantity, history) => {
           type: actionTypes.ADD_TO_CART,
           payload: item
         });
-      })
-      .then(() => {
-        history.push("/cart");
       })
       .catch(err => {
         dispatch(console.log(err.response));
@@ -58,7 +55,7 @@ export const setCart = profile => dispatch => {
   }
 };
 
-export const setStock = (item, quantity) => dispatch => {
+export const setStock = (item, quantity) => {
   return dispatch => {
     console.log("stock update");
     axios
