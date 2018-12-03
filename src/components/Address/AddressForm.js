@@ -37,7 +37,7 @@ class AddressForm extends Component {
   submitHandler(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.addAddress(this.state);
+    this.props.addAddress(this.state, this.props.history);
   }
 
   render() {
@@ -187,7 +187,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
-    addAddress: address => dispatch(actionCreators.createAddress(address))
+    addAddress: (address, history) =>
+      dispatch(actionCreators.createAddress(address, history))
   };
 };
 export default connect(

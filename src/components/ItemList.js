@@ -21,7 +21,7 @@ class ItemList extends Component {
       <div className="mt-5">
         <h3 className="">
           Items
-          <FontAwesomeIcon className="font-awesome" icon={faGithub} />
+          {/* <FontAwesomeIcon className="font-awesome" icon={faGithub} /> */}
         </h3>
         <div className="row">{itemCards}</div>
         <Link to="/profile"> Profile</Link>

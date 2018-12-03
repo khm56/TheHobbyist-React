@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Add item to Cart
 
-export const createAddress = address => {
+export const createAddress = (address, history) => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/address/create/", address)
@@ -24,7 +24,7 @@ export const createAddress = address => {
   };
 };
 
-export const updateAddress = address => {
+export const updateAddress = (address_id, address, history) => {
   return dispatch => {
     axios
       .put(`http://127.0.0.1:8000/api/address/${address_id}/update/`, address)

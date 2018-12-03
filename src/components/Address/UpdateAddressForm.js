@@ -39,16 +39,7 @@ class UpdateAddressForm extends Component {
 
     this.props.updateAddress(
       this.props.location.state.address.id,
-      this.state.name,
-      this.state.governorate,
-      this.state.area,
-      this.state.block,
-      this.state.street,
-      this.state.house_building,
-      this.state.floor,
-      this.state.appartment,
-      this.state.extra_directions,
-      this.state.default,
+      this.state,
       this.props.history
     );
 
@@ -212,36 +203,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    updateAddress: (
-      address_id,
-      name,
-      governorate,
-      area,
-      block,
-      street,
-      house_building,
-      floor,
-      appartment,
-      extra_directions,
-      defaultyes,
-      history
-    ) =>
-      dispatch(
-        actionCreators.updateAddress(
-          address_id,
-          name,
-          governorate,
-          area,
-          block,
-          street,
-          house_building,
-          floor,
-          appartment,
-          extra_directions,
-          defaultyes,
-          history
-        )
-      )
+    updateAddress: (address_id, address, history) =>
+      dispatch(actionCreators.updateAddress(address_id, address, history))
   };
 };
 export default connect(

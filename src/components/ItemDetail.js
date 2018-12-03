@@ -6,7 +6,6 @@ import NumericInput from "react-numeric-input";
 import { connect } from "react-redux";
 
 import * as actionCreators from "../store/actions/index";
-import QuantityForm from "./QuantityForm";
 class ItemDetail extends Component {
   constructor(props) {
     super(props);
