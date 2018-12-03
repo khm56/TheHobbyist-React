@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link, Redirect, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import NumericInput from "react-numeric-input";
 
 import * as actionCreators from "../store/actions";
 
@@ -8,18 +9,18 @@ class QuantityForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 0
+      quantity: 1
     };
 
     this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   changeHandler(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  submitHandler(e) {
+  addToCart(e) {
     e.preventDefault();
     let orderItem =
       this.props.cart.orderItems.filter(item => {
@@ -47,12 +48,18 @@ class QuantityForm extends Component {
       this.props.updateOrderItemInCart(
         retrieveOrderItem.id,
         quantityToBePassed,
+
         this.props.history
       );
+    } else {
+      this.props.addItemToCart(item, cart.id, this.state.quantity);
     }
+
 
     console.log(orderItem);
     this.setState({ quantity: 0 });
+
+
   }
 
   render() {
@@ -62,13 +69,13 @@ class QuantityForm extends Component {
       return (
         <div className="card col-6 mx-auto p-0 mt-5">
           <div className="card-body">
-            <form onSubmit={this.submitHandler} noValidate>
+            <form onSubmit={this.addToCart} noValidate>
               <div className="form-group">
-                <input
-                  className="form-control"
-                  type="text"
-                  pattern="[0-9]*"
-                  placeholder="Quantity"
+                <NumericInput
+                  className="numberinput form-control"
+                  type="number"
+                  min="1"
+                  max={this.props.item.stock}
                   name="quantity"
                   required
                   value={this.state.quantity}
@@ -85,16 +92,19 @@ class QuantityForm extends Component {
 }
 const mapStateToProps = state => {
   return {
+    cart: state.cart.cart,
     user: state.auth.user
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
+
     addItemToCart: (item_id, order_id, quantity, history) =>
       dispatch(
         actionCreators.createOrderItem(item_id, order_id, quantity, history)
       ),
+
     updateOrderItemInCart: (orderItem_id, quantity, history) =>
       dispatch(
         actionCreators.updateOrderItemInCart(orderItem_id, quantity, history)

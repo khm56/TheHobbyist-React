@@ -55,14 +55,7 @@ export const signup = (userData, history) => {
     axios
       .post("http://127.0.0.1:8000/api/register/", userData)
       .then(res => res.data)
-      .then(user => {
-        const decodedUser = jwt_decode(user.token);
-        setAuthToken(user.token);
-        dispatch(login(userData));
-      })
-      .then(() => {
-        dispatch(login(userData));
-      })
+      .then(() => dispatch(login(userData)))
       .catch(err => console.error(err.response));
   };
 };
