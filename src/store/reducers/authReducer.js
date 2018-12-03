@@ -19,7 +19,24 @@ export default (state = initialState, action) => {
         ...state,
         profile: action.payload
       };
-
+    case actionTypes.ADD_ADDRESS:
+      console.log("adding");
+      state.profile.addresses = state.profile.addresses.concat(action.payload);
+      return {
+        ...state,
+        profile: state.profile
+      };
+    case actionTypes.UPDATE_ADDRESS:
+      console.log("update");
+      let addresses = state.profile.addresses.filter(
+        address => address.id !== action.payload.id
+      );
+      addresses.concat(action.payload);
+      state.profile.addresses = addresses;
+      return {
+        ...state,
+        profile: state.profile
+      };
     default:
       return state;
   }

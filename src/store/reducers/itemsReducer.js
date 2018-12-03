@@ -11,7 +11,6 @@ const itemsReducer = (state = initialState, action) => {
         items: action.payload
       };
     case actionTypes.SET_STOCK:
-      console.log("check stock " + action.payload.stock);
       return {
         ...state,
         items: state.items.filter(item => {
