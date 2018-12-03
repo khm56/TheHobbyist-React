@@ -17,6 +17,8 @@ import Checkout from "./components/Checkout/checkout";
 import Cart from "./components/Cart/Cart";
 import AddressForm from "./components/Address/AddressForm";
 
+import UpdateAddressForm from "./components/Address/UpdateAddressForm";
+
 // import Garbage from "./Garbage";
 // import Treasure from "./Treasure";
 
@@ -43,6 +45,7 @@ class App extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/address" component={AddressForm} />
+            <Route path="/updateAddress" component={UpdateAddressForm} />
             {/* <Route path="/garbage" component={Garbage} />
             <PrivateRoute path="/treasure" component={Treasure} /> */}
             // <Redirect to="/" />

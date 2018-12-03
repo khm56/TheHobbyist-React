@@ -11,6 +11,11 @@ export default (state = initialState, action) => {
         ...state,
         address: action.payload
       };
+    case actionTypes.UPDATE_ADDRESS:
+      return {
+        ...state,
+        address: action.payload
+      };
 
     default:
       return state;

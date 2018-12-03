@@ -33,6 +33,7 @@ class QuantityForm extends Component {
         check.id,
         check.quantity + this.state.quantity,
         this.props.history
+
       );
     } else {
       this.props.addItemToCart(item, cart.id, this.state.quantity);
