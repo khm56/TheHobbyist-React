@@ -9,7 +9,7 @@ class AddressForm extends Component {
     super(props);
     this.state = {
       name: "",
-      governorate: "",
+      governorate: "A",
       area: "",
       block: 0,
       street: "",

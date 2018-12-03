@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as actionCreators from "../../store/actions";
 
 // Components
@@ -58,6 +58,9 @@ class Checkout extends Component {
     // const itemCards = this.props.items.map(item => (
     //   <ItemCard key={item.name} item={item} />
     // ));
+    if (!this.props.profile) {
+      return <Redirect to="/list" />;
+    }
     console.log(actionCreators);
     let cart = this.props.cart;
     console.log(cart);
