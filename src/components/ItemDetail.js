@@ -42,6 +42,10 @@ class ItemDetail extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.match.params.itemID);
+    this.props.getItem(this.props.match.params.itemID);
+  }
+  componentDidUpdate() {
     this.props.getItem(this.props.match.params.itemID);
   }
   render() {
@@ -62,6 +66,7 @@ class ItemDetail extends Component {
             />
             <h3>{item.description}</h3>
             <h3>{item.stock} Remaining</h3>
+
             <NumericInput
               onChange={this.handleChange}
               min={1}
@@ -71,6 +76,7 @@ class ItemDetail extends Component {
             <button className="btn" onClick={this.addToCart}>
               ADD
             </button>
+
           </div>
         </div>
       );
@@ -89,6 +95,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
+    fetchProfile: () => dispatch(actionCreators.fetchProfile())
     addItemToCart: (item_id, order_id, quantity) =>
       dispatch(actionCreators.createOrderItem(item_id, order_id, quantity)),
 

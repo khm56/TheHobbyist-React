@@ -21,6 +21,12 @@ class Checkout extends Component {
     this.setState({ address: e.target.value });
   }
 
+ // componentDidMount() {
+ //  this.props.fetchProfile();
+ // }
+ // componentDidUpdate(prevProps) {}
+
+
   checkStock(cart) {
     cart.orderItems.forEach(orderItem => {
       let item_id = orderItem.item;
@@ -105,7 +111,8 @@ const mapDispatchToProps = dispatch => ({
   },
   setStock: (item, quantity) => {
     dispatch(actionCreators.setStock(item, quantity));
-  }
+  },
+  fetchProfile: () => dispatch(actionCreators.fetchProfile())
 });
 
 export default connect(

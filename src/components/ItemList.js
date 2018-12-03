@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import ItemCard from "./ItemCard";
@@ -17,7 +19,10 @@ class ItemList extends Component {
 
     return (
       <div className="mt-5">
-        <h3 className="">Items</h3>
+        <h3 className="">
+          Items
+          <FontAwesomeIcon className="font-awesome" icon={faGithub} />
+        </h3>
         <div className="row">{itemCards}</div>
         <Link to="/profile"> Profile</Link>
         <Link to="/cart"> Cart</Link>

@@ -22,22 +22,44 @@ class QuantityForm extends Component {
 
   addToCart(e) {
     e.preventDefault();
-    let item = this.props.item.id;
-    let cart = this.props.cart;
-    let check = cart.orderItems.find(orderItem => {
-      if (orderItem.item === item) {
-        return orderItem;
-      }
-    });
-    if (check) {
+    let orderItem =
+      this.props.cart.orderItems.filter(item => {
+        return item.item === this.props.item.id;
+      }).length > 0;
+
+    if (
+      this.props.cart.id &&
+      this.props.item.id &&
+      this.state.quantity <= this.props.item.stock &&
+      !orderItem
+    ) {
+      this.props.addItemToCart(
+        this.props.item,
+        this.props.cart,
+        this.state.quantity,
+        this.props.history
+      );
+    } else if (orderItem) {
+      let integerquantity = +this.state.quantity;
+      let retrieveOrderItem = this.props.cart.orderItems.find(item => {
+        return item.item === this.props.item.id;
+      });
+      let quantityToBePassed = retrieveOrderItem.quantity + integerquantity;
       this.props.updateOrderItemInCart(
-        check.id,
-        check.quantity + this.state.quantity,
+        retrieveOrderItem.id,
+        quantityToBePassed,
+
         this.props.history
       );
     } else {
       this.props.addItemToCart(item, cart.id, this.state.quantity);
     }
+
+
+    console.log(orderItem);
+    this.setState({ quantity: 0 });
+
+
   }
 
   render() {
@@ -77,8 +99,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
-    addItemToCart: (item_id, order_id, quantity) =>
-      dispatch(actionCreators.createOrderItem(item_id, order_id, quantity)),
+
+    addItemToCart: (item_id, order_id, quantity, history) =>
+      dispatch(
+        actionCreators.createOrderItem(item_id, order_id, quantity, history)
+      ),
 
     updateOrderItemInCart: (orderItem_id, quantity, history) =>
       dispatch(
