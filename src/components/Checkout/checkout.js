@@ -21,9 +21,6 @@ class Checkout extends Component {
     this.setState({ address: e.target.value });
   }
 
-  componentDidMount() {}
-  componentDidUpdate(prevProps) {}
-
   checkStock(cart) {
     cart.orderItems.forEach(orderItem => {
       let item_id = orderItem.item;
@@ -53,7 +50,6 @@ class Checkout extends Component {
     }
   }
 
-  addAddress() {}
   render() {
     // const itemCards = this.props.items.map(item => (
     //   <ItemCard key={item.name} item={item} />

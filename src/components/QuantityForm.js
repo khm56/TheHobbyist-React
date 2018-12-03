@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link, Redirect, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import NumericInput from "react-numeric-input";
 
 import * as actionCreators from "../store/actions";
 
@@ -21,7 +22,7 @@ class QuantityForm extends Component {
 
   addToCart(e) {
     e.preventDefault();
-    let item = this.props.item;
+    let item = this.props.item.id;
     let cart = this.props.cart;
     let check = cart.orderItems.find(orderItem => {
       if (orderItem.item === item) {
@@ -33,7 +34,6 @@ class QuantityForm extends Component {
         check.id,
         check.quantity + this.state.quantity,
         this.props.history
-
       );
     } else {
       this.props.addItemToCart(item, cart.id, this.state.quantity);
@@ -49,11 +49,11 @@ class QuantityForm extends Component {
           <div className="card-body">
             <form onSubmit={this.addToCart} noValidate>
               <div className="form-group">
-                <input
-                  className="form-control"
-                  type="text"
-                  pattern="[0-9]*"
-                  placeholder="Quantity"
+                <NumericInput
+                  className="numberinput form-control"
+                  type="number"
+                  min="1"
+                  max={this.props.item.stock}
                   name="quantity"
                   required
                   value={this.state.quantity}
