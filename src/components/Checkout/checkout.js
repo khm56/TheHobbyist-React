@@ -25,23 +25,25 @@ class Checkout extends Component {
   componentDidUpdate(prevProps) {}
 
   checkStock(cart) {
-    cart.forEach(orderItem => {
+    cart.orderItems.forEach(orderItem => {
       let item_id = orderItem.item;
-      let item = this.props.items.forEach(item => item.id === item_id);
+      let item = this.props.items.find(item => item.id === item_id);
       if (orderItem.quantity > item.stock) {
         alert(
           `${item.name} doesn't have enough stock please update your quantity`
         );
-        return <Redirect to="./cart" />;
+        // return <Redirect to="./cart" />;
+      } else {
+        this.props.setStock(item, orderItem.quantity);
       }
     });
   }
   confirmHandler() {
     let cart = this.props.cart;
-    this.checkStock(cart);
     if (this.state.address === 0) {
       alert("Please choose address");
     } else {
+      this.checkStock(cart);
       this.props.setStatus(
         cart.id,
         "O",

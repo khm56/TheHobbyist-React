@@ -8,27 +8,35 @@ class QuantityForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 0
+      quantity: 1
     };
 
     this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   changeHandler(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  submitHandler(e) {
+  addToCart(e) {
     e.preventDefault();
-    if (this.props.cart && this.props.item) {
-      this.props.addItemToCart(
-        this.props.item,
-        this.props.cart,
-        this.state.quantity
+    let item = this.props.item;
+    let cart = this.props.cart;
+    let check = cart.orderItems.find(orderItem => {
+      if (orderItem.item === item) {
+        return orderItem;
+      }
+    });
+    if (check) {
+      this.props.updateOrderItemInCart(
+        check.id,
+        check.quantity + this.state.quantity,
+        this.props.history
       );
+    } else {
+      this.props.addItemToCart(item, cart.id, this.state.quantity);
     }
-    this.setState({ quantity: 0 });
   }
 
   render() {
@@ -38,7 +46,7 @@ class QuantityForm extends Component {
       return (
         <div className="card col-6 mx-auto p-0 mt-5">
           <div className="card-body">
-            <form onSubmit={this.submitHandler} noValidate>
+            <form onSubmit={this.addToCart} noValidate>
               <div className="form-group">
                 <input
                   className="form-control"
@@ -61,6 +69,7 @@ class QuantityForm extends Component {
 }
 const mapStateToProps = state => {
   return {
+    cart: state.cart.cart,
     user: state.auth.user
   };
 };
@@ -68,7 +77,12 @@ const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
     addItemToCart: (item_id, order_id, quantity) =>
-      dispatch(actionCreators.createOrderItem(item_id, order_id, quantity))
+      dispatch(actionCreators.createOrderItem(item_id, order_id, quantity)),
+
+    updateOrderItemInCart: (orderItem_id, quantity, history) =>
+      dispatch(
+        actionCreators.updateOrderItemInCart(orderItem_id, quantity, history)
+      )
   };
 };
 export default connect(

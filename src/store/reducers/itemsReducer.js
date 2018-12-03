@@ -11,10 +11,15 @@ const itemsReducer = (state = initialState, action) => {
         items: action.payload
       };
     case actionTypes.SET_STOCK:
-      let item = state.items.find(item => item.id === action.payload.id);
-      item.stock = action.payload.stock;
+      console.log("check stock " + action.payload.stock);
       return {
-        ...state
+        ...state,
+        items: state.items.filter(item => {
+          if (item.id === action.payload.id) {
+            item.stock = action.payload.stock;
+          }
+          return item;
+        })
       };
     default:
       return state;
