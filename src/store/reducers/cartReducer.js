@@ -8,9 +8,11 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case actionTypes.ADD_ITEM:
+      state.cart.orderItems = state.cart.orderItems.concat(action.payload);
       return {
         ...state,
-        cartItems: state.cartItems.concat(action.payload)
+        cartItems: state.cartItems.concat(action.payload),
+        cart: state.cart
       };
     case actionTypes.REMOVE_ITEM:
       return {
@@ -29,9 +31,11 @@ export default function(state = initialState, action) {
         cartItems: action.payload.orderItems
       };
     case actionTypes.ADD_TO_CART:
+      state.cart.orderItems = state.cart.orderItems.concat(action.payload);
       return {
         ...state,
-        cartItems: state.cartItems.concat(action.payload)
+        cartItems: state.cartItems.concat(action.payload),
+        cart: state.cart
       };
     case actionTypes.SET_QUANTITY:
       let item = state.cartItems.find(

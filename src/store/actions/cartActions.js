@@ -55,15 +55,15 @@ export const setCart = profile => dispatch => {
   }
 };
 
-export const setStock = (item, quantity) => dispatch => {
+export const setStock = (item, quantity) => {
   return dispatch => {
     console.log("stock update");
     axios
       .put(`http://127.0.0.1:8000/api/item/${item.id}/stock-update/`, {
         stock: item.stock - quantity
       })
-      .then(() => {
-        dispatch({ type: actionTypes.SET_STOCK, payload: item });
+      .then(res => {
+        dispatch({ type: actionTypes.SET_STOCK, payload: res.data });
       })
       .catch(err => {
         console.log(err.response);
