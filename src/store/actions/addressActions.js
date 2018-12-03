@@ -78,7 +78,7 @@ export const updateAddress = (
       .then(res => res.data)
       .then(address => {
         dispatch({
-          type: actionTypes.ADD_ADDRESS,
+          type: actionTypes.UPDATE_ADDRESS,
           payload: address
         });
       })

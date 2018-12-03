@@ -21,6 +21,7 @@ class QuantityForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
+
     console.log(this.state.quantity);
     console.log(this.props.item.stock);
     if (
@@ -31,7 +32,8 @@ class QuantityForm extends Component {
       this.props.addItemToCart(
         this.props.item.id,
         this.props.cart,
-        this.state.quantity
+        this.state.quantity,
+        this.props.history
       );
     }
     this.setState({ quantity: 0 });
@@ -73,8 +75,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getItem: itemID => dispatch(actionCreators.fetchItemDetail(itemID)),
-    addItemToCart: (item_id, order_id, quantity) =>
-      dispatch(actionCreators.createOrderItem(item_id, order_id, quantity))
+    addItemToCart: (item_id, order_id, quantity, history) =>
+      dispatch(
+        actionCreators.createOrderItem(item_id, order_id, quantity, history)
+      )
   };
 };
 export default connect(

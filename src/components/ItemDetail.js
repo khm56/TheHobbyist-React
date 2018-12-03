@@ -10,7 +10,9 @@ class ItemDetail extends Component {
   componentDidMount() {
     this.props.getItem(this.props.match.params.itemID);
   }
-
+  componentDidUpdate() {
+    this.props.getItem(this.props.match.params.itemID);
+  }
   render() {
     if (!this.props.item.id) {
       return <Redirect to="/list" />;

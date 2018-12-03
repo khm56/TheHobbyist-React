@@ -36,8 +36,7 @@ class UpdateAddressForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    console.log(this.state);
-    console.log(this.props.location);
+
     this.props.updateAddress(
       this.props.location.state.address.id,
       this.state.name,
@@ -224,7 +223,8 @@ const mapDispatchToProps = dispatch => {
       floor,
       appartment,
       extra_directions,
-      defaultyes
+      defaultyes,
+      history
     ) =>
       dispatch(
         actionCreators.updateAddress(
@@ -238,7 +238,8 @@ const mapDispatchToProps = dispatch => {
           floor,
           appartment,
           extra_directions,
-          defaultyes
+          defaultyes,
+          history
         )
       )
   };

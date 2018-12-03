@@ -22,7 +22,7 @@ export const createOrder = () => {
   };
 };
 
-export const createOrderItem = (item_id, order_id, quantity) => {
+export const createOrderItem = (item_id, order_id, quantity, history) => {
   return dispatch => {
     axios
       .post("http://127.0.0.1:8000/api/orderitem/create/", {
@@ -36,6 +36,9 @@ export const createOrderItem = (item_id, order_id, quantity) => {
           type: actionTypes.ADD_TO_CART,
           payload: item
         });
+      })
+      .then(() => {
+        history.push("/cart");
       })
       .catch(err => {
         dispatch(console.log(err.response));
