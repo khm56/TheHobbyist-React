@@ -25,22 +25,42 @@ class ItemCard extends Component {
     const item = this.props.item;
     console.log(item);
     return (
-      <div className="col-lg-4 col-md-6 col-12">
-        <Link to={`/items/${item.id}`} className="card">
-          <div className="image">
-            <img
-              className="card-img-top img-fluid"
-              src={item.image}
-              alt={item.name}
-            />
+      <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 ">
+        <div className="card mb-3" style={{ width: "250px", height: "300px" }}>
+          <Link to={`/items/${item.id}`}>
+            <div className="image" style={{ width: "250px", height: "200px" }}>
+              <img
+                className="card-img-top img-fluid"
+                src={item.image}
+                alt={item.name}
+                style={{
+                  height: "200px",
+                  width: "250px",
+                  objectFit: "contain"
+                }}
+              />
+            </div>
+          </Link>
+
+          <div className="card-body yellow-bg">
+            <div className="row ">
+              <div className="col ">
+                <div className="left p ">
+                  <span className="card-title">{item.name} </span>
+                  <br />
+                  <span className="card-text">{item.price} KD</span>
+                </div>
+              </div>
+              <div className="col">
+                <button
+                  className="btn-yellow right"
+                  onClick={() => this.addToCart()}
+                >
+                  Add
+                </button>
+              </div>
+            </div>
           </div>
-        </Link>
-        <div className="card-body">
-          <h5 className="card-title">
-            <span>{item.name}</span>
-            <span>{item.price} KD</span>
-          </h5>
-          <button onClick={() => this.addToCart()}>Add</button>
         </div>
       </div>
     );

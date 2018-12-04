@@ -21,11 +21,10 @@ class Checkout extends Component {
     this.setState({ address: e.target.value });
   }
 
- // componentDidMount() {
- //  this.props.fetchProfile();
- // }
- // componentDidUpdate(prevProps) {}
-
+  // componentDidMount() {
+  //  this.props.fetchProfile();
+  // }
+  // componentDidUpdate(prevProps) {}
 
   checkStock(cart) {
     cart.orderItems.forEach(orderItem => {
@@ -63,9 +62,7 @@ class Checkout extends Component {
     if (!this.props.profile) {
       return <Redirect to="/list" />;
     }
-    console.log(actionCreators);
     let cart = this.props.cart;
-    console.log(cart);
     let addresses;
     if (this.props.profile.addresses) {
       addresses = this.props.profile.addresses.map(address => (
@@ -76,10 +73,10 @@ class Checkout extends Component {
       return <Redirect to="/address" />;
     }
     return (
-      <div className="Items mt-5">
-        <h3>Checkout</h3>
-        <div>
-          <h1>Choose Address</h1>
+      <div className="container-fluid">
+        <h1 className="black-title">Checkout</h1>
+        <div className="row">
+          <h5 className="p left">Choose Address</h5>
           <select
             defaultValue={this.state.address}
             onChange={this.handleChange}
@@ -92,7 +89,15 @@ class Checkout extends Component {
         <div className="row">
           <CheckoutDetail order={cart} />
         </div>
-        <button onClick={() => this.confirmHandler()}> Confirm </button>
+        <div classNme="col-12">
+          <button
+            className=" border-0 right button-text"
+            onClick={() => this.confirmHandler()}
+          >
+            {" "}
+            Confirm{" "}
+          </button>
+        </div>
       </div>
     );
   }

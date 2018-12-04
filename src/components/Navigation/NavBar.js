@@ -7,10 +7,7 @@ import AuthButton from "./AuthButton";
 class NavBar extends Component {
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-        id="mainNav"
-      >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link
           className="navbar-brand"
           to="/list"
@@ -23,17 +20,26 @@ class NavBar extends Component {
           The Hobbyist
         </Link>
         <button
-          className="navbar-toggler navbar-toggler-right"
+          class="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon" />
+          <span class="navbar-toggler-icon" />
         </button>
-        <div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <Link class="nav-link" to="/list">
+                Home <span class="sr-only">(current)</span>
+              </Link>
+            </li>
+          </ul>
+
           <AuthButton />
         </div>
       </nav>

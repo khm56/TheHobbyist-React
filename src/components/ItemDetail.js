@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import NumericInput from "react-numeric-input";
 // Components
+import ItemCard from "./ItemCard";
 
 import { connect } from "react-redux";
 
@@ -44,37 +45,71 @@ class ItemDetail extends Component {
     console.log(this.props.match.params.itemID);
     this.props.getItem(this.props.match.params.itemID);
   }
-  componentDidUpdate() {
-    this.props.getItem(this.props.match.params.itemID);
-  }
+  componentDidUpdate() {}
   render() {
     if (!this.props.item.id) {
       return <Redirect to="/list" />;
     } else {
       const item = this.props.item;
+      let number = 5;
+      let randomItems = this.props.items.map(item => {
+        if (number > 0) {
+          number--;
+          return <ItemCard key={item.id} item={item} />;
+        }
+      });
       return (
-        <div className="item">
-          <div>
-            <h3>{item.name}</h3>
-            <h3>{item.category}</h3>
-            <h3>{item.rating}</h3>
-            <img
-              src={item.image}
-              className="img-thumbnail img-fluid"
-              alt={item.name}
-            />
-            <h3>{item.description}</h3>
-            <h3>{item.stock} Remaining</h3>
+        <div className="container-fluid">
+          <div className="row mt-3">
+            <div className="col-6 text-right">
+              <img
+                src={item.image}
+                className="img-thumbnail img-fluid border"
+                alt={item.name}
+                style={{
+                  height: "750px",
+                  width: "750px",
+                  objectFit: "contain"
+                }}
+              />
+            </div>
+            <div className="col-6">
+              <h3 className="black-title">{item.name}</h3>
+              <p className="p">
+                Category: <h5 style={{ color: "red" }}>{item.category}</h5>
+              </p>
+              <p className="p">
+                Price: <h5 style={{ color: "red" }}>{item.price} KD</h5>
+              </p>
+              <p className="p">
+                Description: <h5>{item.description}</h5>
+              </p>
+              <p className="p">
+                Stock Available: <h5>{item.stock}</h5>
+              </p>
 
-            <NumericInput
-              onChange={this.handleChange}
-              min={1}
-              max={item.stock}
-              value={this.state.quantity}
-            />
-            <button className="btn" onClick={this.addToCart}>
-              ADD
-            </button>
+              <NumericInput
+                className="input border-0"
+                size="3"
+                style={{ height: "100%" }}
+                strict="true"
+                onChange={this.handleChange}
+                min={1}
+                max={item.stock}
+                value={this.state.quantity}
+              />
+              <button className="btn btn-primary" onClick={this.addToCart}>
+                ADD
+              </button>
+            </div>
+          </div>
+          <div className="mx-auto my-auto">
+            <div className="row mt-5">
+              <h1 className="black-title text-center">
+                More Items you may like
+              </h1>
+            </div>
+            <div className="row mx-5">{randomItems}</div>
           </div>
         </div>
       );
@@ -86,7 +121,8 @@ const mapStateToProps = state => {
   return {
     user: state.auth.user,
     item: state.item.item,
-    cart: state.cart.cart
+    cart: state.cart.cart,
+    items: state.items.items
   };
 };
 

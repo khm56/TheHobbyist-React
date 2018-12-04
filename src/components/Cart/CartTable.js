@@ -26,7 +26,7 @@ class CartTable extends Component {
           <tbody>{cartRow}</tbody>
         </table>
         <div className="row">
-          <h2>Total : {total}</h2>
+          <h5 className="p">Total : {total.toFixed(3)} KD</h5>
         </div>
       </div>
     );

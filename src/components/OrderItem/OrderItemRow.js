@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
 class OrderItemRow extends Component {
   render() {
@@ -18,7 +19,9 @@ class OrderItemRow extends Component {
           )}
         </td>
         <td>
-          <h2>{item.name}</h2>
+          <Link className="" to={`/items/${item.id}`}>
+            <h2>{item.name}</h2>
+          </Link>
         </td>
         <td>{orderItem.quantity}</td>
         <td>
