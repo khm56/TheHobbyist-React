@@ -99,3 +99,23 @@
     transform: rotate(360deg);
   }
 }
+
+.custom-nav {
+  background-color: #6e2c79;
+}
+.dropdown-item:hover {
+  background-color: #bb79c6;
+}
+.btn-outline-success {
+  color: #2faa86;
+  border-color: #2faa86;
+}
+.btn-outline-success:hover {
+  background-color: #2faa86;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background: #ff1c68;
+  transform-origin: 50% 50%;
+}

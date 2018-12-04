@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class OrderItemRow extends Component {
   render() {
@@ -10,9 +10,14 @@ class OrderItemRow extends Component {
       <tr>
         <td>
           {item.image ? (
-            <img style={{ width: "100px", height: "100px" }} src={item.image} />
+            <img
+              alt="describes smth smth"
+              style={{ width: "100px", height: "100px" }}
+              src={item.image}
+            />
           ) : (
             <img
+              alt="describes smth smth"
               style={{ width: "100px", height: "100px" }}
               src="https://www.w3schools.com/w3css/img_lights.jpg"
             />
