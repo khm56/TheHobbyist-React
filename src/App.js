@@ -35,8 +35,8 @@ class App extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <div className="container-fluid">
-          <NavBar />
           <Switch>
             <Route path="/list" exact component={ItemList} />
             <Route path="/items/:itemID" exact component={ItemDetail} />

@@ -13,12 +13,14 @@ class checkoutDetail extends Component {
   render() {
     let order = this.props.order;
     return (
-      <div className="container">
+      <div className="col-12">
         <div>
-          <h3>{order.id}</h3>
-          <h4>{order.status}</h4>
-          <h4>{order.date}</h4>
-          <h5>{/* Put Dropdown to add or choose address */}</h5>
+          <h5 className="p left">
+            Order ID: {order.id} <br /> Date: {order.date}{" "}
+          </h5>
+          {/* <h4>{order.status}</h4> */}
+          <br />
+          <h5 className="p left" />
         </div>
         <OrderItemTable orderItems={order.orderItems} />
       </div>

@@ -18,14 +18,9 @@ class ItemList extends Component {
     ));
 
     return (
-      <div className="mt-5">
-        <h3 className="">
-          Items
-          {/* <FontAwesomeIcon className="font-awesome" icon={faGithub} /> */}
-        </h3>
-        <div className="row">{itemCards}</div>
-        <Link to="/profile"> Profile</Link>
-        <Link to="/cart"> Cart</Link>
+      <div className="my-auto mx-auto">
+        <h3 className="black-title">All Products</h3>
+        <div className="row mx-5">{itemCards}</div>
       </div>
     );
   }

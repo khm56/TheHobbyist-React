@@ -49,12 +49,15 @@ class CartRow extends Component {
           )}
         </td>
         <td>
-          <Link to={`/items/${item.id}`} className="card">
-            <h2>{item.name}</h2>
+          <Link to={`/items/${item.id}`} className="">
+            <h2 className="border-0">{item.name}</h2>
           </Link>
         </td>
         <td>
           <NumericInput
+            strict="true"
+            className="border-0"
+            size="5"
             onChange={this.handleChange}
             min={1}
             max={item.stock}
@@ -64,7 +67,10 @@ class CartRow extends Component {
         <td>
           <div className="row">{item.price}</div>
           <div className="row">
-            <h5>Total: {item.price * orderItem.quantity}</h5>
+            <h5>
+              Total: {(item.price * this.state.quantity).toFixed(3)}
+              KD
+            </h5>
           </div>
         </td>
       </tr>

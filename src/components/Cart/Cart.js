@@ -15,8 +15,18 @@ class Cart extends Component {
     let cart = this.props.cart;
     return (
       <div className="">
+        <h1 className="black-title"> Cart </h1>
         <CartTable orderItems={cart} />
-        <Link to="/checkout"> Checkout </Link>
+        <div className="text-center">
+          <Link
+            className="button-text"
+            style={{ textAligh: "center" }}
+            to="/checkout"
+          >
+            {" "}
+            Checkout{" "}
+          </Link>
+        </div>
       </div>
     );
   }
