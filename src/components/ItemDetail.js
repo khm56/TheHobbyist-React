@@ -58,12 +58,14 @@ class ItemDetail extends Component {
           return <ItemCard key={item.id} item={item} />;
         }
       });
+      let placeHolder =
+        "https://i0.wp.com/hranew.com/wp-content/uploads/2015/04/shop-placeholder.png";
       return (
         <div className="container-fluid">
           <div className="row mt-3">
             <div className="col-6 text-right">
               <img
-                src={item.image}
+                src={item.image || placeHolder}
                 className="img-thumbnail img-fluid border"
                 alt={item.name}
                 style={{

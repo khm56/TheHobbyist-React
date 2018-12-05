@@ -1,5 +1,12 @@
 .App {
-  text-align: center;
+  height: 100%;
+  background-color: #1fc8db;
+  background-image: linear-gradient(
+    141deg,
+    #e4d700 0%,
+    #1fc8db 51%,
+    #2cb5e8 75%
+  );
 }
 
 .button-text {
@@ -100,6 +107,17 @@
   }
 }
 
+
+.tableMid td {
+  vertical-align: middle !important;
+}
+.profile-card {
+  background-color: #2e3338;
+  background-image: linear-gradient(#cf0072 0%, #2e3338 75%);
+}
+.cart-bg {
+  background-image: linear-gradient(#e4d700 0%, #cf0072 51%, #2e3338 75%);
+}
 .custom-nav {
   background-color: #6e2c79;
 }
@@ -130,4 +148,5 @@
   background-color: ##6e2b79;
   border-radius: 50%;
   display: inline-block;
+
 }

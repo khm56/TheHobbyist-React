@@ -37,7 +37,7 @@ class CartRow extends Component {
     const orderItem = this.props.orderItem;
     const item = this.props.items.find(item => item.id === orderItem.item);
     return (
-      <tr>
+      <tr className="tableMid">
         <td>
           {item.image ? (
             <img style={{ width: "100px", height: "100px" }} src={item.image} />
@@ -72,6 +72,9 @@ class CartRow extends Component {
               KD
             </h5>
           </div>
+        </td>
+        <td>
+          <button className="btn btn-outline-danger">Delete</button>
         </td>
       </tr>
     );

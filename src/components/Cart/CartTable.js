@@ -21,6 +21,7 @@ class CartTable extends Component {
               <th>Item Name</th>
               <th>Quantity</th>
               <th>Price</th>
+              <th />
             </tr>
           </thead>
           <tbody>{cartRow}</tbody>
