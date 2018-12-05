@@ -20,7 +20,7 @@ class ItemList extends Component {
     return (
       <div className="my-auto mx-auto">
         <h3 className="black-title">All Products</h3>
-        <div className="row mx-5">{itemCards}</div>
+        <div className="row justify-content-center m-5">{itemCards}</div>
       </div>
     );
   }
