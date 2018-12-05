@@ -21,7 +21,7 @@ class Carousel extends Component {
           <div class="carousel-item active">
             <img
               class="d-block w-100"
-              src="https://www.thedesignchambers.co.uk/wordpress/wp-content/uploads/2015/08/carousel-placeholder-1.png"
+              src="https://content.nike.com/content/dam/one-nike/en_us/season-2018-su/Basketball/0502_Kobe_AD_Refresh/DT/SU18_BBALL_CDP_DT_KOBE-AD_04XX_P1.jpg.transform/full-screen/SU18_BBALL_CDP_DT_KOBE-AD_04XX_P1.jpg"
               alt="First slide"
             />
             <div class="carousel-caption d-none d-md-block">
@@ -32,7 +32,7 @@ class Carousel extends Component {
           <div class="carousel-item">
             <img
               class="d-block w-100"
-              src="https://www.thedesignchambers.co.uk/wordpress/wp-content/uploads/2015/08/carousel-placeholder-1.png"
+              src="https://static01.nyt.com/images/2015/11/08/nyregion/08ALBUMss-slide-FHGJ/08ALBUMss-slide-FHGJ-superJumbo.jpg?quality=75&auto=webp&disable=upscale"
               alt="Second slide"
             />
             <div class="carousel-caption d-none d-md-block">
@@ -43,7 +43,7 @@ class Carousel extends Component {
           <div class="carousel-item">
             <img
               class="d-block w-100"
-              src="https://www.thedesignchambers.co.uk/wordpress/wp-content/uploads/2015/08/carousel-placeholder-1.png"
+              src="https://panmacmillan.azureedge.net/pmk11/panmacmillan/files/media/panmacmillan/blog-images/young-adult/may-18/new-ya-authors.jpg?ext=.jpg"
               alt="Third slide"
             />
             <div class="carousel-caption d-none d-md-block">

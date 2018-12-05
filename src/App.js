@@ -11,6 +11,7 @@ import * as actionCreators from "./store/actions";
 import NavBar from "./components/Navigation/NavBar";
 import RegisterOrLogin from "./components/RegisterOrLogin";
 import ItemList from "./components/ItemList";
+import CategoryList from "./components/Categorylist";
 import Profile from "./components/Profile";
 import ItemDetail from "./components/ItemDetail";
 import Checkout from "./components/Checkout/checkout";
@@ -50,6 +51,7 @@ class App extends Component {
           <Route path="/updateAddress" component={UpdateAddressForm} />
           <Route path="/home" component={HomePage} />
           <Route path="/about" component={About} />
+          <Route path="/category" component={CategoryList} />
           {/* <Route path="/garbage" component={Garbage} />
             <PrivateRoute path="/treasure" component={Treasure} /> */}
           // <Redirect to="/" />

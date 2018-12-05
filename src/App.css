@@ -113,9 +113,21 @@
 .btn-outline-success:hover {
   background-color: #2faa86;
 }
+.bg-primary {
+  background-color: #7ec2e7 !important;
+}
 .box {
   width: 100px;
   height: 100px;
   background: #ff1c68;
   transform-origin: 50% 50%;
+}
+
+.dot {
+  box-shadow: 10px 10px 10px rgba(161, 0, 246, 0.2) !important;
+  height: 170px;
+  width: 170px;
+  background-color: ##6e2b79;
+  border-radius: 50%;
+  display: inline-block;
 }
