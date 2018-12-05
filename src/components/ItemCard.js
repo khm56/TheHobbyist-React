@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 class ItemCard extends Component {
@@ -23,7 +23,6 @@ class ItemCard extends Component {
   }
   render() {
     const item = this.props.item;
-    console.log(item);
     return (
       <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 ">
         <div className="card mb-3" style={{ width: "250px", height: "300px" }}>
