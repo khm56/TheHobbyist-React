@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import UpdateAddressForm from "./UpdateAddressForm";
 import { Redirect, withRouter } from "react-router-dom";
 
 class AddressCard extends Component {

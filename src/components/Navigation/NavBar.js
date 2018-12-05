@@ -7,10 +7,10 @@ import AuthButton from "./AuthButton";
 class NavBar extends Component {
   render() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark custom-nav">
         <Link
           className="navbar-brand"
-          to="/list"
+          to="/home"
           style={{
             fontFamily: "Times New Roman, Times, serif",
             color: "white",
@@ -20,7 +20,7 @@ class NavBar extends Component {
           The Hobbyist
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -28,19 +28,25 @@ class NavBar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon" />
+          <span className="navbar-toggler-icon" />
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <Link class="nav-link" to="/list">
-                Home <span class="sr-only">(current)</span>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item ">
+              <Link className="nav-link" to="/about">
+                About <span className="sr-only">(current)</span>
               </Link>
             </li>
+            <li className="nav-item ">
+              <Link className="nav-link" to="/list">
+                Products <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li>
+              <AuthButton />
+            </li>
           </ul>
-
-          <AuthButton />
         </div>
       </nav>
     );

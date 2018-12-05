@@ -55,7 +55,7 @@ class CartRow extends Component {
         </td>
         <td>
           <NumericInput
-            strict="true"
+            strict={true}
             className="border-0"
             size="5"
             onChange={this.handleChange}
