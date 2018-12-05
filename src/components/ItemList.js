@@ -14,7 +14,7 @@ class ItemList extends Component {
   componentDidUpdate(prevProps) {}
   render() {
     const itemCards = this.props.items.map(item => (
-      <ItemCard key={item.name} item={item} />
+      <ItemCard key={item.id} item={item} />
     ));
 
     return (

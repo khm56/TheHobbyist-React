@@ -23,14 +23,15 @@ class ItemCard extends Component {
   }
   render() {
     const item = this.props.item;
-    console.log(item);
+    let placeHolder =
+      "https://i0.wp.com/hranew.com/wp-content/uploads/2015/04/shop-placeholder.png";
     return (
       <div className="card m-3">
         <Link to={`/items/${item.id}`}>
           <div className="image" style={{ width: "250px", height: "200px" }}>
             <img
               className="card-img-top img-fluid"
-              src={item.image}
+              src={item.image || placeHolder}
               alt={item.name}
               style={{
                 height: "200px",

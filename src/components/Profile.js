@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import OrderTable from "./Order/OrderTable";
 import AddressList from "./Address/AddressList";
 import CartTable from "./Cart/CartTable";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAt, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 // Actions
 import * as actionCreators from "../store/actions";
@@ -23,29 +25,41 @@ class Profile extends Component {
       "http://pronksiapartments.ee/wp-content/uploads/2015/10/placeholder-face-big.png";
     return (
       <div className="jumbotron p-0 m-5">
-        <div className="card-body rounded bg-dark text-white">
+        <div className="card-body rounded profile-card text-white">
           <div className="row">
             <div className="col-3">
               <img
-                className="img-thumbnail img-fluid mx-auto border-0 m-2 rounded-circle"
+                className=" shadow img-thumbnail img-fluid mx-auto border-0 m-2 rounded-circle"
                 src={placeholder}
               />
+              <h1 className="text-center ">
+                <span class="text-white text-uppercase badge badge-warning shadow">
+                  {this.props.profile.user.username}
+                </span>
+              </h1>
             </div>
             <div className="col mt-5 mx-3">
-              <h5 className="card-title mb-4 text-uppercase">
-                {this.props.profile.user.username}
-              </h5>
-              <div>
+              <h1>
                 {this.props.profile.user.first_name}{" "}
                 {this.props.profile.user.last_name}
-              </div>
+              </h1>
               <br />
-              <div> email: {this.props.profile.user.email} </div>
-              <div> phone no : {this.props.profile.phoneNo} </div>
+              <h6>
+                <span class="text-white badge-pill badge-secondary py-2 shadow">
+                  <FontAwesomeIcon icon={faAt} />
+                </span>{" "}
+                {this.props.profile.user.email}{" "}
+                <span class="text-white badge-pill badge-secondary py-2  shadow">
+                  {" "}
+                  <FontAwesomeIcon icon={faMobile} />
+                </span>{" "}
+                {this.props.profile.phoneNo}{" "}
+              </h6>
 
               <br />
               <div>
-                Bio : <br /> {this.props.profile.bio}
+                Profile Details <hr className="border " />{" "}
+                {this.props.profile.bio}
               </div>
             </div>
           </div>
@@ -96,7 +110,7 @@ class Profile extends Component {
               </a>
             </li>
           </ul>
-          <div class="tab-content mx-3" id="myTabContent">
+          <div class="tab-content mx-3 rounded" id="myTabContent">
             <div
               class="tab-pane fade show active"
               id="home"
@@ -113,7 +127,7 @@ class Profile extends Component {
               role="tabpanel"
               aria-labelledby="profile-tab"
             >
-              <div>
+              <div className="text-dark">
                 <AddressList addresses={this.props.profile.addresses} />
               </div>
             </div>

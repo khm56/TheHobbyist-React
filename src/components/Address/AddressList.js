@@ -9,7 +9,6 @@ class AddressList extends Component {
     ));
     return (
       <div>
-        <h2>Address Book</h2>
         <div> {addresses}</div>
       </div>
     );

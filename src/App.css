@@ -110,3 +110,10 @@
 .tableMid td {
   vertical-align: middle !important;
 }
+.profile-card {
+  background-color: #2e3338;
+  background-image: linear-gradient(#cf0072 0%, #2e3338 75%);
+}
+.cart-bg {
+  background-image: linear-gradient(#e4d700 0%, #cf0072 51%, #2e3338 75%);
+}
