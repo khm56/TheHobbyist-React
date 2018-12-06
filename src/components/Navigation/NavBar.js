@@ -17,7 +17,7 @@ class NavBar extends Component {
             fontWeight: "bold"
           }}
         >
-          The Hobbyist
+          HOBBYIST
         </Link>
         <button
           className="navbar-toggler"

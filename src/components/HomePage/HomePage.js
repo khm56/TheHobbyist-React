@@ -28,7 +28,7 @@ class HomePage extends Component {
   }
   render() {
     console.log(this.props.items);
-    let number = 5;
+    let number = 4;
     let randomItems = this.props.items.map(item => {
       if (number > 0) {
         number--;
@@ -41,7 +41,22 @@ class HomePage extends Component {
         <div className=" text-center row">
           <div className="col">
             <div>
-              <h1 className="text-light p-3">CATEGORIES </h1>
+              <div className=" text-center row">
+                <div className="col">
+                  <div>
+                    <h1 className="text-light p-3">FEATURED PRODUCTS</h1>
+                    <div className="container">
+                      <div className="row justify-content-center">
+                        <div className="row">{randomItems}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h1 className=" p-5">
+                <h1 className="text-light p-3">CATEGORIES </h1>
+              </h1>
 
               <div className="container">
                 <div className="row justify-content-center">
@@ -49,23 +64,8 @@ class HomePage extends Component {
 
                   <Category icon={faBook} category="B" />
                   <Category icon={faLaptop} category="T" />
-                </div>
-
-                <div className="row justify-content-center">
                   <Category icon={faPaintBrush} category="A" />
                   <Category icon={faFutbol} category="S" />
-                </div>
-              </div>
-            </div>
-            <div className=" text-center row">
-              <div className="col">
-                <div>
-                  <h1 className="text-light p-3">FEATURED PRODUCTS</h1>
-                  <div className="container">
-                    <div className="row justify-content-center">
-                      <div className="row mx-5">{randomItems}</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
