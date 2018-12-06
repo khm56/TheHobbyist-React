@@ -19,13 +19,7 @@ import ItemCard from "../ItemCard";
 
 class HomePage extends Component {
   componentDidMount() {}
-  Randomizer(category) {
-    let item = this.props.items.find(item => {
-      return item.id === category;
-    });
-    console.log(item);
-    return item;
-  }
+
   render() {
     let number = 4;
     let randomItems = this.props.items.map(item => {
@@ -69,9 +63,7 @@ class HomePage extends Component {
             </div>
 
             <div className="container">
-              <div className="row justify-content-center">
-              
-              </div>
+              <div className="row justify-content-center" />
             </div>
           </div>
         </div>
