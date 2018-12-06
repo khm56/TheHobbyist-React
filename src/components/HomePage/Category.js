@@ -41,6 +41,7 @@ class Category extends Component {
       "Element is now " + (this.state.isVisible ? "visible" : "hidden")
     );
   }
+
   onClickHandler(category) {
     let items = this.props.items.filter(item => {
       return item.category === category;
