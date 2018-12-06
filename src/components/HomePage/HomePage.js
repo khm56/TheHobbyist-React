@@ -28,51 +28,43 @@ class HomePage extends Component {
   }
   render() {
     console.log(this.props.items);
-    let item1 = () => {
-      this.Randomizer(1);
-    };
-    let item2 = () => {
-      this.Randomizer(2);
-    };
-    let item3 = () => {
-      this.Randomizer(3);
-    };
-    let item4 = () => {
-      this.Randomizer(4);
-    };
-    let item5 = () => {
-      this.Randomizer(5);
-    };
+    let number = 5;
+    let randomItems = this.props.items.map(item => {
+      if (number > 0) {
+        number--;
+        return <ItemCard key={item.id} item={item} />;
+      }
+    });
     return (
       <div className="my-auto mx-auto">
         <Carousel />
         <div className=" text-center row">
           <div className="col">
-            <h1 className="text-dark p-3">Categories </h1>
-            <div className="container">
-              <div className="row justify-content-center">
-                <Category icon={faMusic} category="M" />
+            <div>
+              <h1 className="text-light p-3">CATEGORIES </h1>
 
-                <Category icon={faBook} category="B" />
-                <Category icon={faLaptop} category="T" />
-              </div>
+              <div className="container">
+                <div className="row justify-content-center">
+                  <Category icon={faMusic} category="M" />
 
-              <div className="row justify-content-center">
-                <Category icon={faPaintBrush} category="A" />
-                <Category icon={faFutbol} category="S" />
+                  <Category icon={faBook} category="B" />
+                  <Category icon={faLaptop} category="T" />
+                </div>
+
+                <div className="row justify-content-center">
+                  <Category icon={faPaintBrush} category="A" />
+                  <Category icon={faFutbol} category="S" />
+                </div>
               </div>
             </div>
-
             <div className=" text-center row">
               <div className="col">
-                <h1 className="text-dark p-3">Featured Products</h1>
-                <div className="container">
-                  <div className="row justify-content-center">
-                    <ItemCard item={item1} />
-                    <ItemCard item={item2} />
-                    <ItemCard item={item3} />
-                    <ItemCard item={item4} />
-                    <ItemCard item={item5} />
+                <div>
+                  <h1 className="text-light p-3">FEATURED PRODUCTS</h1>
+                  <div className="container">
+                    <div className="row justify-content-center">
+                      <div className="row mx-5">{randomItems}</div>
+                    </div>
                   </div>
                 </div>
               </div>
