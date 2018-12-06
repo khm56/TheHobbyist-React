@@ -28,7 +28,7 @@ class Category extends Component {
 
     this.state = {
       msg: "",
-      isVisible: false
+      isVisible: true
     };
   }
 

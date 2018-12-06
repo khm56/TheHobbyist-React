@@ -21,8 +21,7 @@ class Carousel extends Component {
           <div class="carousel-item active">
             <img class="d-block w-100" src="/images/p3.jpg" alt="First slide" />
             <div class="carousel-caption d-none d-md-block">
-              <h5>...</h5>
-              <p>...</p>
+              <h2 className="font-weight-light" />
             </div>
           </div>
           <div class="carousel-item">
@@ -31,17 +30,11 @@ class Carousel extends Component {
               src="/images/p2.jpg"
               alt="Second slide"
             />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>...</h5>
-              <p>...</p>
-            </div>
+            <div class="carousel-caption d-none d-md-block" />
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src="/images/p1.jpg" alt="Third slide" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>...</h5>
-              <p>...</p>
-            </div>
+            <div class="carousel-caption d-none d-md-block" />
           </div>
         </div>
         <a

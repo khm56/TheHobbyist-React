@@ -30,34 +30,37 @@ class HomePage extends Component {
     });
     return (
       <div className="my-auto mx-auto">
+        <h1 className=" font-weight-light text-center text-white text-uppercase p-5 mt-2 title">
+          {" "}
+          The place to unleash your creativity!
+        </h1>{" "}
         <Carousel />
         <div className=" text-center row">
           <div className="col">
             <div>
               <div className=" text-center row">
                 <div className="col">
-                  <div>
-                    <h1 className="text-light p-3">FEATURED PRODUCTS</h1>
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="row">{randomItems}</div>
-                      </div>
+                  <h1 className=" bg-dark p-5" />{" "}
+                  <h1 className="text-light p-3">CATEGORIES </h1>
+                  <div className="container">
+                    <div className="row justify-content-center">
+                      <Category icon={faMusic} category="M" />
+
+                      <Category icon={faBook} category="B" />
+                      <Category icon={faLaptop} category="T" />
+                      <Category icon={faPaintBrush} category="A" />
+                      <Category icon={faFutbol} category="S" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <h1 className=" p-5">
-                <h1 className="text-light p-3">CATEGORIES </h1>
-              </h1>
-              <div className="container">
-                <div className="row justify-content-center">
-                  <Category icon={faMusic} category="M" />
-
-                  <Category icon={faBook} category="B" />
-                  <Category icon={faLaptop} category="T" />
-                  <Category icon={faPaintBrush} category="A" />
-                  <Category icon={faFutbol} category="S" />
+              <div>
+                <h1 className="text-light p-3">FEATURED PRODUCTS</h1>
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="row">{randomItems}</div>
+                  </div>
                 </div>
               </div>
             </div>
