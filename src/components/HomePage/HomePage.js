@@ -27,22 +27,13 @@ class HomePage extends Component {
     return item;
   }
   render() {
-    console.log(this.props.items);
-    let item1 = () => {
-      this.Randomizer(1);
-    };
-    let item2 = () => {
-      this.Randomizer(2);
-    };
-    let item3 = () => {
-      this.Randomizer(3);
-    };
-    let item4 = () => {
-      this.Randomizer(4);
-    };
-    let item5 = () => {
-      this.Randomizer(5);
-    };
+    let number = 4;
+    let randomItems = this.props.items.map(item => {
+      if (number > 0) {
+        number--;
+        return <ItemCard key={item.id} item={item} />;
+      }
+    });
     return (
       <div className="my-auto mx-auto">
         <Carousel />
@@ -68,11 +59,7 @@ class HomePage extends Component {
                 <h1 className="text-dark p-3">Featured Products</h1>
                 <div className="container">
                   <div className="row justify-content-center">
-                    <ItemCard item={item1} />
-                    <ItemCard item={item2} />
-                    <ItemCard item={item3} />
-                    <ItemCard item={item4} />
-                    <ItemCard item={item5} />
+                    {randomItems}
                   </div>
                 </div>
               </div>

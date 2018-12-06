@@ -24,10 +24,11 @@
   font-size: 2rem;
   font-weight: 400;
   margin: 0 0 1rem 0;
-  color: #333;
+  color: #fff;
   line-height: 1.4;
   font-family: "Avenir", proxima-nova, sans-serif;
   text-align: center;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .lite {
@@ -107,7 +108,6 @@
   }
 }
 
-
 .tableMid td {
   vertical-align: middle !important;
 }
@@ -148,5 +148,11 @@
   background-color: ##6e2b79;
   border-radius: 50%;
   display: inline-block;
+}
 
+.badge-success {
+  background-color: #2faa86;
+}
+.bt-success {
+  background-color: #69be28;
 }
