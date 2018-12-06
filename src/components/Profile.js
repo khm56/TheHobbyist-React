@@ -143,7 +143,6 @@ class Profile extends Component {
 
           <br />
         </div>
-        <div className="card-footer">footer</div>
       </div>
     );
   }
