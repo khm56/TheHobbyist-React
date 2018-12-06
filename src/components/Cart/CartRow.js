@@ -36,17 +36,16 @@ class CartRow extends Component {
   render() {
     const orderItem = this.props.orderItem;
     const item = this.props.items.find(item => item.id === orderItem.item);
+    let placeHolder =
+      "https://i0.wp.com/hranew.com/wp-content/uploads/2015/04/shop-placeholder.png";
+
     return (
       <tr className="tableMid">
         <td>
-          {item.image ? (
-            <img style={{ width: "100px", height: "100px" }} src={item.image} />
-          ) : (
-            <img
-              style={{ width: "100px", height: "100px" }}
-              src="https://www.w3schools.com/w3css/img_lights.jpg"
-            />
-          )}
+          <img
+            style={{ width: "100px", height: "100px" }}
+            src={item.image || placeHolder}
+          />
         </td>
         <td>
           <Link to={`/items/${item.id}`} className="">
@@ -65,7 +64,9 @@ class CartRow extends Component {
           />
         </td>
         <td>
-          <div className="row">{item.price}</div>
+          <div className="row">
+            price per unit <br /> {item.price}
+          </div>
           <div className="row">
             <h5>
               Total: {(item.price * this.state.quantity).toFixed(3)}

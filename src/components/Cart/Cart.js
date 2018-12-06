@@ -14,17 +14,16 @@ class Cart extends Component {
   render() {
     let cart = this.props.cart;
     return (
-      <div className="">
-        <h1 className="black-title"> Cart </h1>
+      <div className="jumbotron m-5">
+        <h1 className="black-title "> Cart </h1>
         <CartTable orderItems={cart} />
         <div className="text-center">
           <Link
-            className="button-text"
+            className="btn btn-lg btn-block btn-outline-success"
             style={{ textAligh: "center" }}
             to="/checkout"
           >
-            {" "}
-            Checkout{" "}
+            Checkout
           </Link>
         </div>
       </div>
