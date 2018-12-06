@@ -5,7 +5,7 @@ import OrderRow from "./OrderRow";
 class OrderTable extends Component {
   render() {
     const orders = this.props.orders.map(order => (
-      <OrderRow key={order.id} order={order} />
+      <OrderRow key={order.id} order={order} items={this.props.items} />
     ));
     return (
       <table className="mt-3 table">
