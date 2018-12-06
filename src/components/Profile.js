@@ -118,7 +118,10 @@ class Profile extends Component {
               aria-labelledby="home-tab"
             >
               <div>
-                <OrderTable orders={this.props.profile.orders} />
+                <OrderTable
+                  orders={this.props.profile.orders}
+                  items={this.props.items}
+                />
               </div>
             </div>
             <div
@@ -143,7 +146,6 @@ class Profile extends Component {
 
           <br />
         </div>
-        <div className="card-footer">footer</div>
       </div>
     );
   }
@@ -153,7 +155,8 @@ const mapStateToProps = state => ({
   user: state.auth.user,
   profile: state.prof.profile,
   checked: state.auth.checked,
-  cart: state.cart.cartItems
+  cart: state.cart.cartItems,
+  items: state.items.items
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -15,28 +15,62 @@ class AddressCard extends Component {
     const address = this.props.address;
 
     return (
-      <div className="card">
-        <h2>{address.name}</h2>
-        <div>
-          <h2>Governorate : {address.governorate}</h2>
-          <h3>
-            Area : {address.area} block : {address.block}
-          </h3>
-          <h3>
-            Street : {address.street} house/building : {address.house_building}
-          </h3>
-          <h3>
-            Floor : {address.floor} Appartment : {address.appartment}
-          </h3>
-          <h3>Extra Directions : {address.extra_directions}</h3>
-          <button
-            type="button"
-            className="btn btn-dark"
-            onClick={() => this.redirectToForm(address)}
-          >
-            Update
-          </button>
+      <div
+        className="card m-3 p-3 text-dark"
+        style={{ backgroundColor: "#fff" }}
+      >
+        <h2 className="text-uppercase m-3 font-weight-light">{address.name}</h2>{" "}
+        <hr className="mx-3" />
+        <div className=" justify-content-center m-3 font-weight-light">
+          <h5 className="row">
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              Governorate
+            </span>
+            {address.governorate}
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              Area
+            </span>
+            {address.area}
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              block
+            </span>
+            {address.block}
+          </h5>
+
+          <h5 className="row">
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              Street
+            </span>
+            {address.street}
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              building
+            </span>{" "}
+            {address.house_building}
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              Floor
+            </span>
+            {address.floor}{" "}
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              Appartment
+            </span>{" "}
+            {address.appartment}
+          </h5>
+
+          <h5 className="row">
+            {" "}
+            <span class="text-white badge text-uppercase badge-success py-2 mb-2 mx-3 ">
+              Extra Directions
+            </span>{" "}
+            {address.extra_directions}
+          </h5>
         </div>
+        <button
+          type="button"
+          className="btn btn-dark "
+          onClick={() => this.redirectToForm(address)}
+        >
+          Update
+        </button>
       </div>
     );
   }

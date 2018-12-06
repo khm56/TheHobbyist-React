@@ -6,22 +6,17 @@ class OrderItemRow extends Component {
   render() {
     const orderItem = this.props.orderItem;
     const item = this.props.items.find(item => item.id === orderItem.item);
+    let placeHolder =
+      "https://i0.wp.com/hranew.com/wp-content/uploads/2015/04/shop-placeholder.png";
+
     return (
       <tr>
         <td>
-          {item.image ? (
-            <img
-              alt="describes smth smth"
-              style={{ width: "100px", height: "100px" }}
-              src={item.image}
-            />
-          ) : (
-            <img
-              alt="describes smth smth"
-              style={{ width: "100px", height: "100px" }}
-              src="https://www.w3schools.com/w3css/img_lights.jpg"
-            />
-          )}
+          <img
+            alt="describes smth smth"
+            style={{ width: "100px", height: "100px" }}
+            src={item.image || placeHolder}
+          />
         </td>
         <td>
           <Link className="" to={`/items/${item.id}`}>

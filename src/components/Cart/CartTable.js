@@ -14,6 +14,15 @@ class CartTable extends Component {
     });
     return (
       <div className="container">
+        <div className="row float-right ">
+          <h3 className="p ">
+            {" "}
+            <span class="text-white text-uppercase badge badge-success ">
+              Total : {total.toFixed(3)}
+              KWD
+            </span>{" "}
+          </h3>
+        </div>
         <table className="mt-3 table">
           <thead>
             <tr>
@@ -26,9 +35,6 @@ class CartTable extends Component {
           </thead>
           <tbody>{cartRow}</tbody>
         </table>
-        <div className="row">
-          <h5 className="p">Total : {total.toFixed(3)} KD</h5>
-        </div>
       </div>
     );
   }

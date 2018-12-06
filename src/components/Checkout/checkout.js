@@ -73,7 +73,7 @@ class Checkout extends Component {
       return <Redirect to="/address" />;
     }
     return (
-      <div className="container-fluid">
+      <div className="jumbotron m-5">
         <h1 className="black-title">Checkout</h1>
         <div className="row">
           <h5 className="p left">Choose Address</h5>
@@ -91,7 +91,7 @@ class Checkout extends Component {
         </div>
         <div classNme="col-12">
           <button
-            className=" border-0 right button-text"
+            className=" btn btn-outline-warning right btn-lg btn-block"
             onClick={() => this.confirmHandler()}
           >
             {" "}
