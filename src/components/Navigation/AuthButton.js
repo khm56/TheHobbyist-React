@@ -26,7 +26,7 @@ class AuthButton extends Component {
               <span>{this.props.user.username.toUpperCase()}</span>
             </div>
             <div
-              className="dropdown-menu  custom-nav "
+              className="dropdown-menu  bg-dark "
               aria-labelledby="navbarDropdown"
             >
               <Link to="/profile" className="dropdown-item">

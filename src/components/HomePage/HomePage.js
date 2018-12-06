@@ -27,7 +27,6 @@ class HomePage extends Component {
     return item;
   }
   render() {
-    console.log(this.props.items);
     let number = 4;
     let randomItems = this.props.items.map(item => {
       if (number > 0) {
@@ -57,7 +56,6 @@ class HomePage extends Component {
               <h1 className=" p-5">
                 <h1 className="text-light p-3">CATEGORIES </h1>
               </h1>
-
               <div className="container">
                 <div className="row justify-content-center">
                   <Category icon={faMusic} category="M" />
@@ -72,7 +70,7 @@ class HomePage extends Component {
 
             <div className="container">
               <div className="row justify-content-center">
-                <h1>Hello</h1>
+              
               </div>
             </div>
           </div>

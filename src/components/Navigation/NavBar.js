@@ -7,7 +7,7 @@ import AuthButton from "./AuthButton";
 class NavBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark custom-nav">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark  sticky-top ">
         <Link
           className="navbar-brand"
           to="/home"

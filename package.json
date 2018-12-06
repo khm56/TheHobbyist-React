@@ -15,6 +15,7 @@
     "react-dom": "^16.6.3",
     "react-numeric-input": "^2.2.3",
     "react-pose": "^4.0.3",
+    "react-rating": "^1.6.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",

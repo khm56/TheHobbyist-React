@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
 class ItemCard extends Component {
   addToCart() {
     let item = this.props.item;
@@ -28,7 +31,7 @@ class ItemCard extends Component {
       "https://i0.wp.com/hranew.com/wp-content/uploads/2015/04/shop-placeholder.png";
 
     return (
-      <div className="card m-3">
+      <div className="card bg-dark text-white border-0 m-3">
         <Link to={`/items/${item.id}`}>
           <div className="image" style={{ width: "250px", height: "200px" }}>
             <img
@@ -45,11 +48,14 @@ class ItemCard extends Component {
         </Link>
 
         <div className="card-body ">
-          <span className="card-title">{item.name} </span>
+          <span className="card-title font-weight-bold">{item.name} </span>
           <br />
-          <span className="card-text">{item.price} KD</span>
-          <button className="btn btn-primary" onClick={() => this.addToCart()}>
-            Add
+          <span className="card-text font-weight-light">{item.price} KWD</span>
+          <button
+            className="btn btn-warning  float-right"
+            onClick={() => this.addToCart()}
+          >
+            <FontAwesomeIcon icon={faPlus} />
           </button>
         </div>
       </div>
