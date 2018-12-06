@@ -34,11 +34,11 @@ class Category extends Component {
 
   componentDidMount() {
     this.setState({
-      msg: "Element is now " + (this.state.isVisible ? "visible" : "hidden"),
+      msg: "Element is now " + (!this.state.isVisible ? "visible" : "hidden"),
       isVisible: this.state.isVisibl
     });
     console.log(
-      "Element is now " + (this.state.isVisible ? "visible" : "hidden")
+      "Element is now " + (!this.state.isVisible ? "visible" : "hidden")
     );
   }
   onClickHandler(category) {
@@ -71,7 +71,7 @@ class Category extends Component {
           >
             {" "}
             <FontAwesomeIcon
-              className="fa-10x  text-white text-center"
+              className="fa-9x fa-mx-3 my-3  text-white text-center"
               icon={this.props.icon}
             />{" "}
           </Box>

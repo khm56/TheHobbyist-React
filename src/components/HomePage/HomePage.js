@@ -39,35 +39,38 @@ class HomePage extends Component {
         <Carousel />
         <div className=" text-center row">
           <div className="col">
-            <h1 className="text-dark p-3">Categories </h1>
-            <div className="container">
-              <div className="row justify-content-center">
-                <Category icon={faMusic} category="M" />
-
-                <Category icon={faBook} category="B" />
-                <Category icon={faLaptop} category="T" />
-              </div>
-
-              <div className="row justify-content-center">
-                <Category icon={faPaintBrush} category="A" />
-                <Category icon={faFutbol} category="S" />
-              </div>
-            </div>
-
-            <div className=" text-center row">
-              <div className="col">
-                <h1 className="text-dark p-3">Featured Products</h1>
-                <div className="container">
-                  <div className="row justify-content-center">
-                    {randomItems}
+            <div>
+              <div className=" text-center row">
+                <div className="col">
+                  <div>
+                    <h1 className="text-light p-3">FEATURED PRODUCTS</h1>
+                    <div className="container">
+                      <div className="row justify-content-center">
+                        <div className="row">{randomItems}</div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+              </div>
+
+              <h1 className=" p-5">
+                <h1 className="text-light p-3">CATEGORIES </h1>
+              </h1>
+              <div className="container">
+                <div className="row justify-content-center">
+                  <Category icon={faMusic} category="M" />
+
+                  <Category icon={faBook} category="B" />
+                  <Category icon={faLaptop} category="T" />
+                  <Category icon={faPaintBrush} category="A" />
+                  <Category icon={faFutbol} category="S" />
                 </div>
               </div>
             </div>
 
             <div className="container">
               <div className="row justify-content-center">
-                <h1>Hello</h1>
+              
               </div>
             </div>
           </div>
