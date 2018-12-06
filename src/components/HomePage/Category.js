@@ -34,11 +34,11 @@ class Category extends Component {
 
   componentDidMount() {
     this.setState({
-      msg: "Element is now " + (!this.state.isVisible ? "visible" : "hidden"),
-      isVisible: this.state.isVisibl
+      msg: "Element is now " + (this.state.isVisible ? "visible" : "hidden"),
+      isVisible: this.state.isVisible
     });
     console.log(
-      "Element is now " + (!this.state.isVisible ? "visible" : "hidden")
+      "Element is now " + (this.state.isVisible ? "visible" : "hidden")
     );
   }
   onClickHandler(category) {
@@ -55,10 +55,10 @@ class Category extends Component {
   render() {
     let onChange = isVisibl => {
       this.setState({
-        msg: "Element is now " + (isVisibl ? "visible" : "hidden"),
+        msg: "Element is now " + (!isVisible ? "visible" : "hidden"),
         isVisible: !this.state.isVisible
       });
-      console.log("Element is now " + (isVisible ? "visible" : "hidden"));
+      console.log("Element is now " + (!isVisible ? "visible" : "hidden"));
     };
     const { isVisible } = this.state;
     return (

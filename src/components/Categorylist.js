@@ -12,7 +12,7 @@ import * as actionCreators from "../store/actions";
 
 class CategoryList extends Component {
   render() {
-    const itemCards = this.props.items.map(item => (
+    const itemCards = this.props.location.state.items.map(item => (
       <ItemCard key={item.name} item={item} />
     ));
 
